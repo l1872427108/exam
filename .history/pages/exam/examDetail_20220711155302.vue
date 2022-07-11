@@ -48,7 +48,6 @@
             <view class="footer-block"></view>
         </u-popup> -->
         <view class="footer-block"></view>
-        
   </view>
 </template>
 
