@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/tabBar/index",
+    "pages/user/index",
+    "pages/user/userdetail",
+    "pages/user/useredit",
+    "pages/user/about",
+    "pages/login/index",
+    "pages/exam/examSection",
+    "pages/exam/examScorew",
+    "pages/exam/examDetail"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundTextStyle": "dark",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "/components/NavCustom/NavCustom"
+  }
+}

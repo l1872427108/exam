@@ -1,0 +1,10 @@
+.relative {
+    position: relative;
+}
+
+
+@each $style in (l: left, r: right) {
+    .f#{nth($style, 1)} {
+      float: nth($style, 2);
+    }
+}

@@ -1,0 +1,1 @@
+<view class="user-detail__item animation-slide-bottom" style="{{'animation-delay:'+('0.2s')+';'}}"><view class="content"><text class="text-grey">{{title}}</text></view><view class="action"><text class="text-grey">{{info}}</text></view></view>

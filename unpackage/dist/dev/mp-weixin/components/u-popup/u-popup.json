@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+    "u-mask": "/components/u-mask/u-mask"
+  }
+}

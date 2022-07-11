@@ -1,0 +1,358 @@
+@charset "UTF-8";
+.fz25 {
+  font-size: 25rpx;
+}
+.fz30 {
+  font-size: 30rpx;
+}
+.fz35 {
+  font-size: 35rpx;
+}
+.fz40 {
+  font-size: 40rpx;
+}
+.fz45 {
+  font-size: 45rpx;
+}
+.fz50 {
+  font-size: 50rpx;
+}
+.fz55 {
+  font-size: 55rpx;
+}
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.slot-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40rpx;
+  flex: 1;
+}
+.slot-wrap .exam-exit {
+  font-size: 36rpx;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #333333;
+  line-height: 48rpx;
+}
+.slot-wrap .right_app {
+  /* background-image: url('../../static/exam_app.svg'); */
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 49rpx;
+  width: 49rpx;
+}
+.pop {
+  margin-top: 100px !important;
+}
+.app-content {
+  margin: 0 40rpx 25rpx 40rpx;
+}
+.app-content .exam-btn {
+  padding: 0rpx 200rpx 0 200rpx;
+}
+.app-content .exam-btn .exam-sumbit {
+  height: 88rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  font-size: 36rpx;
+  line-height: 88rpx;
+  color: #2db0fe;
+  text-align: center;
+}
+.app-content .datilist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-start;
+  padding-left: 10rpx;
+  /* .dati-err {
+				background: #ff4545;
+				color: #fff;
+			} */
+}
+.app-content .datilist .dati-suc {
+  background: #2db0fe !important;
+  color: #fff;
+}
+.app-content .datilist .dati-none {
+  border: 4rpx solid #2db0fe;
+  color: #2db0fe;
+}
+.app-content .datilist .dati-none text {
+  line-height: 76rpx !important;
+}
+.app-content .datilist .dati-item {
+  width: 81.66666rpx;
+  height: 81.66666rpx;
+  margin: 15rpx;
+  border-radius: 100%;
+  text-align: center;
+  background-color: #888888;
+}
+.app-content .datilist .dati-item text {
+  font-size: 36rpx;
+  line-height: 81rpx;
+}
+.app-content .app-header {
+  height: 88rpx;
+  display: flex;
+  width: 100vw;
+  padding-left: 60rpx;
+  padding-right: 120rpx;
+}
+.app-content .app-header .close-app {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  right: 40rpx;
+  /* background-image: url(../../static/app_close.svg); */
+  background-repeat: no-repeat;
+  background-size: 100%;
+  top: 18rpx;
+  top: calc(18rpx + env(safe-area-inset-top)) !important;
+}
+.app-content .app-header .exam-title {
+  position: relative;
+  line-height: 88rpx;
+  text-align: center;
+  font-size: 32rpx;
+  flex: 1;
+}
+.app-content .app-header .exam-title text {
+  width: 520rpx;
+  height: 88rpx;
+  font-family: PingFangSC, PingFangSC-Light;
+  font-weight: 300;
+  text-align: center;
+  color: #333333;
+  line-height: 88rpx;
+}
+.time-header {
+  padding: 0 32rpx;
+  display: flex;
+  height: 120rpx;
+  justify-content: space-start;
+}
+.time-header .time-left {
+  width: 130rpx;
+  height: 120rpx;
+  font-size: 28rpx;
+  font-weight: 300;
+  text-align: right;
+  color: #333333;
+  line-height: 120rpx;
+}
+.time-header .time-num {
+  width: 200rpx;
+  height: 120rpx;
+  display: flex;
+  padding: 37rpx 15rpx;
+  justify-content: space-between;
+}
+.time-header .time-num .item {
+  width: 44rpx;
+  height: 46rpx;
+  background: #333333;
+  border-radius: 6rpx;
+  color: #fff;
+  text-align: center;
+  line-height: 46rpx;
+}
+.time-header .time-num .item text {
+  width: 42rpx;
+  height: 46rpx;
+  font-size: 24rpx;
+  font-weight: 300;
+  color: #ffffff;
+  line-height: 46rpx;
+}
+.time-header .time-num .dot {
+  line-height: 46rpx;
+}
+.time-header .time-right {
+  width: 96rpx;
+  height: 120rpx;
+  line-height: 120rpx;
+  text-align: right;
+  flex: 1;
+}
+.time-header .time-right .that-num {
+  width: 48rpx;
+  height: 56rpx;
+  font-size: 40rpx;
+  color: #333333;
+  line-height: 56rpx;
+  padding-right: 5rpx;
+}
+.time-header .time-right .count {
+  width: 48rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  text-align: center;
+  color: #cccccc;
+  line-height: 40rpx;
+}
+.line {
+  margin: 0 30rpx;
+  height: 1rpx;
+  background: rgba(218, 218, 218, 0.3);
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  background: #fff;
+  padding-bottom: env(safe-area-inset-bottom);
+  box-shadow: 0rpx -2rpx 20rpx 20rpx #f5f5f5;
+}
+.footer .footer-content {
+  background: #ffffff;
+  min-width: 740rpx;
+  height: 100rpx;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40rpx;
+}
+.footer .footer-content .footer-right {
+  display: flex;
+  line-height: 100rpx;
+}
+.footer .footer-content .footer-right .right-item:first-child {
+  margin-right: 54rpx;
+}
+.footer .footer-content .footer-right .right-item:nth-child(2) {
+  margin-right: 54rpx;
+}
+.footer .footer-content .footer-right .right-item {
+  height: 100rpx;
+  width: 96rpx;
+  font-size: 32rpx;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #44a7fc;
+}
+.footer .footer-content .footer-left {
+  display: flex;
+  justify-content: space-between;
+  line-height: 100rpx;
+  box-flex: 1;
+}
+.footer .footer-content .footer-left .item:first-child {
+  margin-right: 54rpx;
+}
+.footer .footer-content .footer-left .item {
+  display: flex;
+  justify-content: space-between;
+}
+.footer .footer-content .footer-left .item .suc-num {
+  width: 36rpx;
+  height: 48rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #299afa;
+  line-height: 100rpx;
+  position: relative;
+  left: 10rpx;
+}
+.footer .footer-content .footer-left .item .err-num {
+  width: 36rpx;
+  height: 48rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #fd0000;
+  line-height: 100rpx;
+  position: relative;
+  left: 10rpx;
+}
+.footer .footer-content .footer-left .item .suc-icon {
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  top: 30rpx;
+  /* background-image: url(../../static/exam_suc.svg); */
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.footer .footer-content .footer-left .item .err-icon {
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  top: 30rpx;
+  /* background-image: url(../../static/exam_err.svg); */
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+.text-header {
+  width: 670rpx;
+  height: 100rpx;
+  font-size: 36rpx;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  text-align: left;
+  color: #333333;
+  line-height: 50rpx;
+  margin-left: 32rpx;
+  margin-top: 30rpx;
+  display: flex;
+}
+.text-option {
+  width: 670rpx;
+  background: #eeeeee;
+  border-radius: 4rpx;
+  margin-left: 32rpx;
+  margin-top: 30rpx;
+  text-align: left;
+}
+.text-option text {
+  font-size: 36rpx;
+  font-family: PingFangSC, PingFangSC-Regular;
+  font-weight: 400;
+  color: #888888;
+  line-height: 50rpx;
+  display: flex;
+  padding: 30rpx;
+  text-align: left;
+}
+.option-error {
+  background: #f66565 !important;
+}
+.option-error text {
+  color: #ffffff !important;
+}
+.option-action {
+  background: #2799fa !important;
+}
+.option-action text {
+  color: #ffffff !important;
+}
+

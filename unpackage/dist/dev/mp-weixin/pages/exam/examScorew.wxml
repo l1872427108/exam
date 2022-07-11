@@ -1,0 +1,1 @@
+<view class="exam-result"><cu-custom vue-id="36eef2bb-1" bgColor="bg-gradual-blue" isBack="{{false}}" bind:__l="__l" vue-slots="{{['content']}}"><view slot="content">考试详情</view></cu-custom><view class="exam-result-main"><view class="exam-result-main__title"><text>考试结束</text></view><view class="exam-result-main__content"><text>考试结果, 感谢您的作答！</text></view></view></view>

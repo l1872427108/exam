@@ -1,0 +1,1 @@
+<view class="avatar-image data-v-3ba709ba"><image class="avatar-image__item circle data-v-3ba709ba" style="{{'width:'+(width+'rpx')+';'+('height:'+(width+'rpx')+';')+('border-width:'+(borderWidth+'rpx')+';')+('border-color:'+(borderColor)+';')}}" src="{{url?url:'/static/default-avatar.png'}}"></image></view>

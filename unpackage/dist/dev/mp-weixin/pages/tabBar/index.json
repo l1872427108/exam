@@ -1,0 +1,9 @@
+{
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "home": "/pages/home/index",
+    "exam": "/pages/exam/index",
+    "me": "/pages/user/index",
+    "bar-item": "/pages/tabBar/components/BarItem"
+  }
+}

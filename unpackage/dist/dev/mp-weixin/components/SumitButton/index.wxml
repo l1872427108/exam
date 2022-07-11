@@ -1,0 +1,1 @@
+<button class="btn-box__button bg-gradual-blue" disabled="{{btnLoading}}" loading="{{btnLoading}}" data-event-opts="{{[['tap',[['handleClick',['$event']]]]]}}" bindtap="__e">{{''+content+''}}</button>

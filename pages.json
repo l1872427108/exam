@@ -1,0 +1,66 @@
+{
+	"pages": [
+		{
+			"path": "pages/tabBar/index",
+			"style": {
+                "enablePullDownRefresh": true
+			}
+		},
+        {
+			"path": "pages/user/index",
+			"style": {}
+		},
+        {
+			"path": "pages/user/userdetail",
+			"style": {}
+		},
+        {
+			"path": "pages/user/useredit",
+			"style": {}
+		},
+        {
+            "path": "pages/user/about",
+			"style": {}
+        },
+        {
+            "path": "pages/login/index",
+			"style": {}
+        },
+        {
+            "path": "pages/exam/examSection",
+            "style": {
+                "navigationStyle": "default"
+            }
+        },
+        {
+            "path": "pages/exam/examScorew",
+            "style": {}
+        },
+        {
+            "path": "pages/exam/examDetail",
+            "style": {}
+        }
+    ],
+	"globalStyle": {
+		"navigationBarBackgroundColor": "#ffffff",
+		"backgroundTextStyle": "dark",
+		"navigationBarTextStyle": "black",
+        "navigationStyle": "custom"
+	},
+	  "easycom": {
+	  	"autoscan": true,
+		"custom": {
+			"^u-(.*)": "@/components/u-$1/u-$1.vue"
+		}
+	  },
+      "condition": {
+        "current": 1,
+        "list": [
+            {
+                "name": "mine",
+                "path": "pages/exam/examDetail"
+            }
+        ]
+    }
+}
+

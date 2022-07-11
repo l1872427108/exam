@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "exam-item": "/pages/exam/components/ExamItem",
+    "tab-scroll": "/components/TabScroll/index"
+  }
+}

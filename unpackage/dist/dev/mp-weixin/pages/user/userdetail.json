@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "avatar-image": "/components/AvatarImage/index",
+    "user-detail-item": "/pages/user/components/UserDetailItem",
+    "submit-button": "/components/SumitButton/index"
+  }
+}

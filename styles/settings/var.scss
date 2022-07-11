@@ -1,0 +1,30 @@
+/* Color
+----------------------- */
+$color-primary: #409EFF;
+$color-white: #FFFFFF;
+$color-black: #000000;
+$color-transparent-black: rgba(0, 0, 0, .1);
+
+$color-text-primary: #666666;
+$color-text-secondary: #333333;
+$color-text-tertiary: $color-white;
+$color-text-quaternary: $color-primary;
+
+
+$background-color-primary: #F1F1F1;
+$background-color-secondary: $color-white;
+$background-color-tertiary: $color-primary;
+
+/* Border
+----------------------- */
+$border-width-base: 1rpx;
+$border-style-base: solid;
+$border-color-base: #E5E5E5;
+$border-base: $border-width-base $border-style-base $border-color-base;
+
+
+/* z-index
+-------------------------- */
+$index-normal: 1;
+$index-top: 1000;
+$index-popper: 2000;

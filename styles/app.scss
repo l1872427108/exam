@@ -1,0 +1,79 @@
+@import "@/styles/settings/var.scss";
+
+/* 初始化
+----------------------- */
+body {
+	background-color: $background-color-primary;
+	font-size: 28rpx;
+	color: $color-text-primary;
+	font-family: Helvetica Neue, Helvetica, sans-serif;
+}
+
+view,
+scroll-view,
+swiper,
+button,
+input,
+textarea,
+label,
+navigator,
+image {
+	box-sizing: border-box;
+}
+
+
+/* 初始化图片
+----------------------- */
+image {
+	max-width: 100%;
+	display: inline-block;
+	position: relative;
+	z-index: 0;
+}
+
+
+
+/* 初始化开关
+----------------------- */
+switch,
+checkbox,
+radio {
+	position: relative;
+}
+
+
+
+
+/* 固定
+----------------------- */
+.fixed {
+    position: fixed;
+	width: 100%;
+	z-index: 1024;
+    box-shadow: 0 1upx 6upx rgba(0, 0, 0, 0.1);
+}
+
+/* 通用按钮
+----------------------- */
+.button-direction {
+    font-size: 28rpx;
+    background: $background-color-tertiary;
+    color: $color-text-tertiary;
+    height: 90rpx;
+    line-height: 90rpx;
+    border-radius: 50rpx;
+    font-weight: bold;
+}
+
+
+
+
+
+.blod {
+    font-weight: bold;
+}
+
+
+.border-bottom {
+    border-bottom: 1px solid #e9e9e9;
+}

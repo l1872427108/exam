@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "avatar-image": "/components/AvatarImage/index",
+    "bottom-view": "/components/BottomView/index",
+    "user-tool-item": "/pages/user/components/UserToolItem"
+  }
+}

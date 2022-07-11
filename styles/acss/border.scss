@@ -1,0 +1,6 @@
+@for $i from 10 through 20 {
+    .radius#{$i} { 
+      border-radius: #{$i}rpx;
+      overflow: hidden;
+    }
+}
