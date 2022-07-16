@@ -84,15 +84,7 @@
  let loginModal = false
  
  // 所有接口数据处理（可在接口里设置不调用此方法）
- // 此方法需要开发者根据各自的接口返回类型修改，以下只是模板
  $http.dataFactory = async res => {
-   // console.log("接口请求数据", {
-   //   url: res.url,
-   //   resolve: res.response,
-   //   header: res.header,
-   //   data: res.data,
-   //   method: res.method,
-   // })
     console.log('res=>', res)
    if (!res.response.statusCode || res.response.statusCode != 200) {
      // 返回错误的结果(catch接受数据)
@@ -103,7 +95,7 @@
    }
  
    let httpData = res.response.data
-   console.log(httpData)
+   console.log('httpData', httpData)
    if (typeof httpData == "string") {
      try {
        httpData = JSON.parse(httpData)
@@ -126,6 +118,12 @@
      // 返回正确的结果(then接受数据)
      return Promise.resolve(httpData)
    }
+
+   if (httpData.code == 20001) {
+    return Promise.reject({
+        errMsg: httpData.message
+    })
+  }
  
    // 判断是否需要登录
    if (httpData.code == 401) {
@@ -139,13 +137,12 @@
        uni.showModal({
          title: '温馨提示',
          content: '此时此刻需要您登录喔~',
-         // showCancel: false,
          confirmText: "去登录",
          cancelText: "再逛会",
          success: res => {
            if (res.confirm) {
              uni.navigateTo({
-               url: "/pages/login/login"
+               url: "/pages/login/index"
              })
            }
            if (res.cancel && getCurrentPages().length > 1) {
@@ -195,7 +192,7 @@
  
  // 显示请求错误信息
  const showRequestError = (e) => {
-   let errMsg = `网络请求出错：${e.errMsg}`
+   let errMsg = `${e.errMsg}`
    // #ifdef MP-WEIXIN
    if (e.errMsg === 'request:fail url not in domain list') {
      errMsg = '当前API域名未添加到微信小程序授权名单 ' + e.errMsg

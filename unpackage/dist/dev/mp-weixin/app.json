@@ -7,7 +7,7 @@
     "pages/user/about",
     "pages/login/index",
     "pages/exam/examSection",
-    "pages/exam/examScorew",
+    "pages/exam/examScore",
     "pages/exam/examDetail"
   ],
   "subPackages": [],
@@ -16,6 +16,10 @@
     "backgroundTextStyle": "dark",
     "navigationBarTextStyle": "black",
     "navigationStyle": "custom"
+  },
+  "networkTimeout": {
+    "uploadFile": 20000,
+    "request": 20000
   },
   "usingComponents": {
     "cu-custom": "/components/NavCustom/NavCustom"

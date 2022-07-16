@@ -6,7 +6,7 @@ $direction: (l left, r right, t top, b bottom);
     @if $type == m {
       @each $d in $direction{
         .m#{nth($d, 1)}#{$i} {
-          margin-#{nth($d, 1)}: #{$i}rpx;
+          margin-#{nth($d, 2)}: #{$i}rpx;
         }
       }
     }
@@ -14,15 +14,15 @@ $direction: (l left, r right, t top, b bottom);
     @else if $type == p {
       @each $d in $direction{
         .p#{nth($d, 1)}#{$i} {
-          padding-#{nth($d, 1)}: #{$i}rpx;
+          padding-#{nth($d, 2)}: #{$i}rpx;
         }
       }
     }
 
     @else if $type == h {
       .ph#{$i} {
-        padding-left: #{$i}Rpx;
-        padding-right: #{$i}Rpx;
+        padding-left: #{$i}rpx;
+        padding-right: #{$i}rpx;
       }
 
       .mh#{$i} {

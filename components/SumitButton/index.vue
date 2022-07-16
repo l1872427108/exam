@@ -38,13 +38,13 @@ export default {
     line-height: 80rpx;
     color: #fffafe;
     font-size: 28rpx;
-    box-shadow: 2rpx 2rpx 2rpx #efeef3;
-    margin: 100rpx auto;
+    /* box-shadow: 2rpx 2rpx 2rpx #222224; */
+    margin: 50rpx auto;
 }
 
 
 .bg-gradual-blue {
-	background-image: linear-gradient(45deg, #0081ff, #1cbbb4);
+	background-color: #0076fb;
 	color: #ffffff;
 }
 </style>

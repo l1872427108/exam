@@ -3,5 +3,5 @@ export default {
 	/*
 	* 后端api地址
 	*/
-	apiUrl: "https://testqsk.puge.net/test-api"
+	apiUrl: "https://xg.puge.cn/prod-api"
 }

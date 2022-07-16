@@ -22,7 +22,7 @@
 		<block>
 			<view class="my-info-student pa30">
 				<view v-for="(item, index) in studentInfo" :key="index" class="my-info-student__item solid-right animation-slide-bottom">
-					<view :class="item.color" class="text-xxl">{{ isLogin ? userInfo[item.key] : '--' }}</view>
+					<view :class="item.color" class="text-xxl">{{ isLogin ? userInfo[item.key] ? userInfo[item.key] : '--' : '--' }}</view>
 					<view class="margin-top-sm">{{item['name']}}</view>
 				</view>
 			</view>
@@ -32,7 +32,7 @@
 
 				<user-tool-item img="/static/me/icon/bianqian.png" title="个人资料" @click.native="toInfoView"></user-tool-item>
 				
-                <user-tool-item img="/static/me/icon/lvhang.png" title="分享小程序"></user-tool-item>
+                <!-- <user-tool-item img="/static/me/icon/lvhang.png" title="分享小程序"></user-tool-item> -->
 				
 			</view>
 
@@ -40,14 +40,14 @@
             <!-- 其他工具 -->
 
             <view class="my-info-tool">
-
+                
                 <user-tool-item img="/static/me/icon/dengta.png" title="技术支持" @tap="callPhoneNumber">
                     <view class="action pr20">
-						<view class="cu-tag round bg-blue light">13111182031</view>
+						<view class="cu-tag round bg-blue light"></view>
 					</view>
                 </user-tool-item>
-
-                <user-tool-item img="/static/me/icon/chucuo.png" title="问题反馈"></user-tool-item>
+                <!-- img="/static/me/icon/chucuo.png" -->
+                <!-- <user-tool-item title="问题反馈"></user-tool-item> -->
 
                 <user-tool-item img="/static/me/icon/xiaoxi.png" title="关于我们" @click.native="toAboutOut"></user-tool-item>
                
@@ -55,7 +55,7 @@
 
             <view class="my-info-tool" v-if="isLogin">
 
-                <user-tool-item img="/static/me/icon/xiaoxi.png" title="退出登录" @tap="handleLogout"></user-tool-item>
+                <user-tool-item img="/static/me/icon/shouji.png" title="退出登录" @tap="handleLogout"></user-tool-item>
             
             </view>
 
@@ -108,6 +108,9 @@ import {User, Pic} from '../../common/enum/user';
          */
         created() {
             this.onRefreshPage();
+            this.$eventBus.$on('back', () => {
+                this.onRefreshPage();
+            })
         },
 
         /**
@@ -120,7 +123,6 @@ import {User, Pic} from '../../common/enum/user';
                 }
             }
         },
-
         /**
          * 分享
          */
@@ -180,6 +182,7 @@ import {User, Pic} from '../../common/enum/user';
                 uni.navigateTo({
 					url: '/pages/user/userdetail'
 				})
+                // this.$navTo('pages/user/userdetail', {}, 'redirectTo')
             },
 
             /**
@@ -196,7 +199,7 @@ import {User, Pic} from '../../common/enum/user';
              */
             callPhoneNumber() {
                 uni.makePhoneCall({
-					phoneNumber: "13111182031",
+					phoneNumber: "",
 				});
             },
 
@@ -277,6 +280,7 @@ import {User, Pic} from '../../common/enum/user';
             z-index: 99;
             mix-blend-mode: screen;
             height: 100rpx;
+            margin-right: 15rpx;
 		}
 	}
 
@@ -339,6 +343,9 @@ import {User, Pic} from '../../common/enum/user';
     }
     .solid-right {
         border-right: 1rpx solid rgba(0, 0, 0, .1);
+    }
+    .solid-right:last-child {
+        border-right: none;
     }
 
 

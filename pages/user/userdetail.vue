@@ -147,7 +147,7 @@
 
 
 .bg-gradual-blue {
-	background-image: linear-gradient(45deg, #0081ff, #1cbbb4);
+	background: #0076fb;
 	color: #ffffff;
 }
 

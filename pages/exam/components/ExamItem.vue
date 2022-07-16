@@ -1,5 +1,5 @@
 <template>
-    <block class="exam-content">
+    <view class="exam-content">
         <view v-for="item in listData" :key="item.id" @tap="handleClick(item)" class="exam-content__item fz30 animation-slide-right">
             <view class="exam-content__item-title ph30">
                 <text>{{ item.paperName }}</text>
@@ -11,10 +11,11 @@
                 <text>{{navIndex === 0 ? `次数:${item.remainJoinNum}` : `提交:${item.gmtModified}` }}</text>
             </view>
         </view>
-    </block>
+    </view>
 </template>
 
 <script>
+import * as UserApi from '@/api/user'
 export default {
     props: {
         listData: {
@@ -24,6 +25,10 @@ export default {
         navIndex: {
             type: [String|Number],
             default: 0
+        },
+        isLogin: {
+            type: Boolean,
+            default: false
         }
     },
     methods: {
@@ -32,15 +37,41 @@ export default {
          */
         handleClick(item) {
             if (this.navIndex === 0) {
-
-                const isExam = !this.checkExamTime(item);
-
-                isExam && this.$navTo('pages/exam/examSection', {id: item.id})
+                // 先验证是否能够考试
+                this.getUserInfo()
+                    .then(() => {
+                        const isExam = !this.checkExamTime(item);
+                        isExam && this.$navTo('pages/exam/examSection', {id: item.id}, 'redirectTo')
+                    })
             } else if (this.navIndex === 1) {
                 // 记录
+                this.$navTo('pages/exam/examDetail', {id: item.id})
             }
         },
 
+        /**
+         * 获取当前用户信息
+         */
+        getUserInfo() {
+            return new Promise((resolve, reject) => {
+                !this.isLogin ? resolve(null) : UserApi.getUserInfo({}, { load: this.isFirstload })
+                .then(result => {
+                    const res = result.data.qskInfo;
+                    const userClass = res.userClass;
+                    const userNum = res.userNum;
+                    if (!userClass || !userNum) {
+                        // 不能通过
+                        this.$toast('请先完善个人信息!');
+                        return;
+                    }
+                    resolve()
+                })
+                .catch(err => {
+                    reject(err)
+                })
+            })
+        },
+        
         /**
          * 检测是否在考试时间段
          */
@@ -82,11 +113,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/styles/settings/var.scss";
 @import "@/styles/tools/index.scss";
 @include b(exam-content) {
-    
+    margin-bottom: 200rpx;
+    padding-bottom: 100rpx;
     @include e(item) {
         display: block;
         overflow: hidden;
@@ -100,7 +132,7 @@ export default {
         color: $color-text-secondary;  //secondary
         height: 70rpx;  
         @include box-center($justify: space-between);
-        border-bottom: 1px $border-width-base $color-transparent-black;
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
     }
 
     @include e(item-info) {
@@ -115,7 +147,7 @@ export default {
         border-radius: 30rpx;
         display: block;
         min-width: 70rpx;
-        width: 60rpx;
+        /* width: 60rpx; */
         height: 32rpx;
         line-height: 32rpx;
         text-align: center;

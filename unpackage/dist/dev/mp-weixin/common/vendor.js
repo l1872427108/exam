@@ -3763,7 +3763,7 @@ getters;exports.default = _default;
 
 /***/ }),
 
-/***/ 127:
+/***/ 128:
 /*!************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/home/index.js ***!
   \************************************************************************/
@@ -3771,11 +3771,11 @@ getters;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "Home", { enumerable: true, get: function get() {return _Home.default;} });var _Home = _interopRequireDefault(__webpack_require__(/*! ./Home */ 128));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "Home", { enumerable: true, get: function get() {return _Home.default;} });var _Home = _interopRequireDefault(__webpack_require__(/*! ./Home */ 129));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /***/ }),
 
-/***/ 128:
+/***/ 129:
 /*!***********************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/home/Home.js ***!
   \***********************************************************************/
@@ -3783,7 +3783,7 @@ Object.defineProperty(exports, "__esModule", { value: true });Object.definePrope
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 49));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -3791,10 +3791,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
                                                                                                                                                                                                                                                             */var _default =
 
 new _index.default([
-{ id: 1, type: 'image', url: '/static/banner/banner1.png', link: '' },
-{ id: 2, type: 'image', url: '/static/banner/banner2.jpg', link: '' },
-{ id: 3, type: 'image', url: '/static/banner/banner3.jpg', link: '' },
-{ id: 4, type: 'image', url: '/static/banner/banner4.jpg', link: '' }]);exports.default = _default;
+{ id: 1, type: 'image', url: '/static/banner/banner1.jpeg', link: '' },
+{ id: 2, type: 'image', url: '/static/banner/banner2.jpeg', link: '' },
+{ id: 3, type: 'image', url: '/static/banner/banner3.jpeg', link: '' }]);exports.default = _default;
 
 /***/ }),
 
@@ -3806,6 +3805,7 @@ new _index.default([
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
+	"./time.js": 246,
 	"./users.js": 14
 };
 
@@ -3831,7 +3831,7 @@ webpackContext.id = 13;
 
 /***/ }),
 
-/***/ 136:
+/***/ 137:
 /*!************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/exam/index.js ***!
   \************************************************************************/
@@ -3839,11 +3839,11 @@ webpackContext.id = 13;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "Exam", { enumerable: true, get: function get() {return _Exam.default;} });var _Exam = _interopRequireDefault(__webpack_require__(/*! ./Exam */ 137));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "Exam", { enumerable: true, get: function get() {return _Exam.default;} });var _Exam = _interopRequireDefault(__webpack_require__(/*! ./Exam */ 138));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /***/ }),
 
-/***/ 137:
+/***/ 138:
 /*!***********************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/exam/Exam.js ***!
   \***********************************************************************/
@@ -3851,7 +3851,7 @@ Object.defineProperty(exports, "__esModule", { value: true });Object.definePrope
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 49));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -3957,8 +3957,9 @@ var actions = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.SET_USER_ID = exports.SET_TOKEN = void 0;var SET_TOKEN = 'SET_TOKEN';exports.SET_TOKEN = SET_TOKEN;
+Object.defineProperty(exports, "__esModule", { value: true });exports.SET_TIME = exports.SET_USER_ID = exports.SET_TOKEN = void 0;var SET_TOKEN = 'SET_TOKEN';exports.SET_TOKEN = SET_TOKEN;
 var SET_USER_ID = 'SET_USER_ID';exports.SET_USER_ID = SET_USER_ID;
+var SET_TIME = 'SET_TIME';exports.SET_TIME = SET_TIME;
 
 /***/ }),
 
@@ -4117,15 +4118,7 @@ $http.requestEnd = function (options) {
 var loginModal = false;
 
 // 所有接口数据处理（可在接口里设置不调用此方法）
-// 此方法需要开发者根据各自的接口返回类型修改，以下只是模板
 $http.dataFactory = /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee(res) {var httpData;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-            // console.log("接口请求数据", {
-            //   url: res.url,
-            //   resolve: res.response,
-            //   header: res.header,
-            //   data: res.data,
-            //   method: res.method,
-            // })
             console.log('res=>', res);if (!(
             !res.response.statusCode || res.response.statusCode != 200)) {_context.next = 3;break;}return _context.abrupt("return",
 
@@ -4136,7 +4129,7 @@ $http.dataFactory = /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#_
 
 
             httpData = res.response.data;
-            console.log(httpData);
+            console.log('httpData', httpData);
             if (typeof httpData == "string") {
               try {
                 httpData = JSON.parse(httpData);
@@ -4160,8 +4153,14 @@ $http.dataFactory = /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#_
             Promise.resolve(httpData));case 10:if (!(
 
 
+            httpData.code == 20001)) {_context.next = 12;break;}return _context.abrupt("return",
+            Promise.reject({
+              errMsg: httpData.message }));case 12:if (!(
 
-            httpData.code == 401)) {_context.next = 14;break;}
+
+
+
+            httpData.code == 401)) {_context.next = 16;break;}
             // 401也有可能是后端登录态到期, 所以要清空本地的登录状态
             _store.default.dispatch('users/logout');
 
@@ -4172,13 +4171,12 @@ $http.dataFactory = /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#_
               uni.showModal({
                 title: '温馨提示',
                 content: '此时此刻需要您登录喔~',
-                // showCancel: false,
                 confirmText: "去登录",
                 cancelText: "再逛会",
                 success: function success(res) {
                   if (res.confirm) {
                     uni.navigateTo({
-                      url: "/pages/login/login" });
+                      url: "/pages/login/index" });
 
                   }
                   if (res.cancel && getCurrentPages().length > 1) {
@@ -4192,12 +4190,12 @@ $http.dataFactory = /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#_
             return _context.abrupt("return", Promise.reject({
               statusCode: 0,
               errMsg: httpData.message,
-              result: httpData }));case 14:if (!(
+              result: httpData }));case 16:if (!(
 
 
 
 
-            httpData.code == 500)) {_context.next = 17;break;}
+            httpData.code == 500)) {_context.next = 19;break;}
             if (res.isPrompt) {
               setTimeout(function () {
                 uni.showToast({
@@ -4211,7 +4209,7 @@ $http.dataFactory = /*#__PURE__*/function () {var _ref = _asyncToGenerator( /*#_
             return _context.abrupt("return", Promise.reject({
               statusCode: 0,
               errMsg: httpData.message,
-              result: httpData }));case 17:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref.apply(this, arguments);};}();
+              result: httpData }));case 19:case "end":return _context.stop();}}}, _callee);}));return function (_x) {return _ref.apply(this, arguments);};}();
 
 
 
@@ -4228,7 +4226,7 @@ $http.requestError = function (e) {
 
 // 显示请求错误信息
 var showRequestError = function showRequestError(e) {
-  var errMsg = "\u7F51\u7EDC\u8BF7\u6C42\u51FA\u9519\uFF1A".concat(e.errMsg);
+  var errMsg = "".concat(e.errMsg);
 
   if (e.errMsg === 'request:fail url not in domain list') {
     errMsg = '当前API域名未添加到微信小程序授权名单 ' + e.errMsg;
@@ -4257,6 +4255,44 @@ $http;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! regenerator-runtime */ 19);
+
+/***/ }),
+
+/***/ 187:
+/*!***************************************************************************!*\
+  !*** /Users/renchengkai/Desktop/project-qsk/common/enum/exam/Question.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+
+/**
+                                                                                                                                                                                                                                                            * tabber列表
+                                                                                                                                                                                                                                                            */var _default =
+
+new _index.default([
+{
+  name: '【单选题】',
+  type: '0' },
+
+{
+  name: '【多选题】',
+  type: '1' },
+
+{
+  name: '【判断题】',
+  type: '2' },
+
+{
+  name: '【填空题】',
+  type: '3' },
+
+{
+  name: '【问答题】',
+  type: '4' }]);exports.default = _default;
 
 /***/ }),
 
@@ -5079,14 +5115,8 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
-
-
-
-
-var _upload = _interopRequireDefault(__webpack_require__(/*! ./upload/upload */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} /***************纯粹的数据请求（如果使用这种可以删除掉fileUpload.js）******************/ // import request from "./core/request.js";
-// export default request;
-/********数据请求同时继承了文件上传（包括七牛云上传）************/var _default = _upload.default;exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _upload = _interopRequireDefault(__webpack_require__(/*! ./upload/upload */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+_upload.default;exports.default = _default;
 
 /***/ }),
 
@@ -5570,6 +5600,34 @@ exports.dispatchRequest = dispatchRequest;var jsonpRequest = function jsonpReque
 
 /***/ }),
 
+/***/ 246:
+/*!********************************************************************!*\
+  !*** /Users/renchengkai/Desktop/project-qsk/store/modules/time.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _mutationTypes = __webpack_require__(/*! @/store/mutation-types */ 15);function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+
+var state = {
+  lastTime: '' };
+
+
+var mutations = _defineProperty({},
+_mutationTypes.SET_TIME, function (state, value) {
+  state.lastTime = value;
+});var _default =
+
+
+{
+  namespaced: true,
+  state: state,
+  mutations: mutations };exports.default = _default;
+
+/***/ }),
+
 /***/ 25:
 /*!****************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/request/upload/utils.js ***!
@@ -5870,112 +5928,6 @@ exports.qiniuUpload = qiniuUpload;var urlUpload = function urlUpload(requestInfo
 
 /***/ }),
 
-/***/ 256:
-/*!****************************************************************************!*\
-  !*** /Users/renchengkai/Desktop/project-qsk/components/uni-icons/icons.js ***!
-  \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  'contact': "\uE100",
-  'person': "\uE101",
-  'personadd': "\uE102",
-  'contact-filled': "\uE130",
-  'person-filled': "\uE131",
-  'personadd-filled': "\uE132",
-  'phone': "\uE200",
-  'email': "\uE201",
-  'chatbubble': "\uE202",
-  'chatboxes': "\uE203",
-  'phone-filled': "\uE230",
-  'email-filled': "\uE231",
-  'chatbubble-filled': "\uE232",
-  'chatboxes-filled': "\uE233",
-  'weibo': "\uE260",
-  'weixin': "\uE261",
-  'pengyouquan': "\uE262",
-  'chat': "\uE263",
-  'qq': "\uE264",
-  'videocam': "\uE300",
-  'camera': "\uE301",
-  'mic': "\uE302",
-  'location': "\uE303",
-  'mic-filled': "\uE332",
-  'speech': "\uE332",
-  'location-filled': "\uE333",
-  'micoff': "\uE360",
-  'image': "\uE363",
-  'map': "\uE364",
-  'compose': "\uE400",
-  'trash': "\uE401",
-  'upload': "\uE402",
-  'download': "\uE403",
-  'close': "\uE404",
-  'redo': "\uE405",
-  'undo': "\uE406",
-  'refresh': "\uE407",
-  'star': "\uE408",
-  'plus': "\uE409",
-  'minus': "\uE410",
-  'circle': "\uE411",
-  'checkbox': "\uE411",
-  'close-filled': "\uE434",
-  'clear': "\uE434",
-  'refresh-filled': "\uE437",
-  'star-filled': "\uE438",
-  'plus-filled': "\uE439",
-  'minus-filled': "\uE440",
-  'circle-filled': "\uE441",
-  'checkbox-filled': "\uE442",
-  'closeempty': "\uE460",
-  'refreshempty': "\uE461",
-  'reload': "\uE462",
-  'starhalf': "\uE463",
-  'spinner': "\uE464",
-  'spinner-cycle': "\uE465",
-  'search': "\uE466",
-  'plusempty': "\uE468",
-  'forward': "\uE470",
-  'back': "\uE471",
-  'left-nav': "\uE471",
-  'checkmarkempty': "\uE472",
-  'home': "\uE500",
-  'navigate': "\uE501",
-  'gear': "\uE502",
-  'paperplane': "\uE503",
-  'info': "\uE504",
-  'help': "\uE505",
-  'locked': "\uE506",
-  'more': "\uE507",
-  'flag': "\uE508",
-  'home-filled': "\uE530",
-  'gear-filled': "\uE532",
-  'info-filled': "\uE534",
-  'help-filled': "\uE535",
-  'more-filled': "\uE537",
-  'settings': "\uE560",
-  'list': "\uE562",
-  'bars': "\uE563",
-  'loop': "\uE565",
-  'paperclip': "\uE567",
-  'eye': "\uE568",
-  'arrowup': "\uE580",
-  'arrowdown': "\uE581",
-  'arrowleft': "\uE582",
-  'arrowright': "\uE583",
-  'arrowthinup': "\uE584",
-  'arrowthindown': "\uE585",
-  'arrowthinleft': "\uE586",
-  'arrowthinright': "\uE587",
-  'pulldown': "\uE588",
-  'closefill': "\uE589",
-  'sound': "\uE590",
-  'scan': "\uE612" };exports.default = _default;
-
-/***/ }),
-
 /***/ 26:
 /*!************************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/request/upload/qiniuUploader.js ***!
@@ -6198,11 +6150,8 @@ var mergeConfig = Object.assign({}, _defaultConfig.default, _config.default);
 /***/ (function(module, exports) {
 
 module.exports = {
-  // 系统名称
-  name: "萤火商城2.0",
-  // 必填: 后端api地址, 斜杠/结尾, 参照下面格式
-  // 例如: https://www.你的域名.com/index.php?s=/api/
-  apiUrl: "https://testqsk.puge.net/test-api" };
+  name: "轻松考",
+  apiUrl: "https://xg.puge.cn/prod-api" };
 
 /***/ }),
 
@@ -6219,7 +6168,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   /*
                * 后端api地址
                */
-  apiUrl: "https://testqsk.puge.net/test-api" };exports.default = _default;
+  apiUrl: "https://xg.puge.cn/prod-api" };exports.default = _default;
 
 /***/ }),
 
@@ -6909,11 +6858,11 @@ var navTo = function navTo(url) {var query = arguments.length > 1 && arguments[1
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.addPreZero = exports.addUnit = exports.isEmptyObject = exports.isArray = exports.isObject = exports.isEmpty = exports.urlEncode = void 0;var _validate = __webpack_require__(/*! ./validate */ 35);
+Object.defineProperty(exports, "__esModule", { value: true });exports.throttle = throttle;exports.addPreZero = exports.addUnit = exports.isEmptyObject = exports.isArray = exports.isObject = exports.isEmpty = exports.urlEncode = void 0;var _validate = __webpack_require__(/*! ./validate */ 35);
 /**
-                                                                                                                                                                                                                                                                    * 对象转URL
-                                                                                                                                                                                                                                                                    * @param {object} obj
-                                                                                                                                                                                                                                                                    */
+                                                                                                                                                                                                                                                                                                * 对象转URL
+                                                                                                                                                                                                                                                                                                * @param {object} obj
+                                                                                                                                                                                                                                                                                                */
 var urlEncode = function urlEncode() {var obj = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var result = [];var _loop = function _loop(
   key) {
@@ -6994,6 +6943,30 @@ var addPreZero = function addPreZero(num) {
   }
   return s + num;
 };exports.addPreZero = addPreZero;
+
+function throttle(func) {var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;var immediate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;
+  var timer, flag;
+  if (immediate) {
+    if (!flag) {
+      flag = true;
+      // 如果是立即执行，则在wait毫秒内开始时执行
+      typeof func === 'function' && func();
+      timer = setTimeout(function () {
+        flag = false;
+      }, wait);
+    }
+  } else {
+    if (!flag) {
+      flag = true;
+      // 如果是非立即执行，则在wait毫秒内的结束处执行
+      timer = setTimeout(function () {
+        flag = false;
+        typeof func === 'function' && func();
+      }, wait);
+    }
+
+  }
+};
 
 /***/ }),
 
@@ -7095,6 +7068,46 @@ function isEmail(str) {
   var valid_map = /^[A-Za-z0-9_.-]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/;
   return valid_map.test(str);
 }
+
+/***/ }),
+
+/***/ 36:
+/*!****************************************************************!*\
+  !*** /Users/renchengkai/Desktop/project-qsk/utils/debounce.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var timeout = null;
+
+/**
+                                                                                                                         * 防抖原理：一定时间内，只有最后一次操作，再过wait毫秒后才执行函数
+                                                                                                                         * 
+                                                                                                                         * @param {Function} func 要执行的回调函数 
+                                                                                                                         * @param {Number} wait 延时的时间
+                                                                                                                         * @param {Boolean} immediate 是否立即执行 
+                                                                                                                         * @return null
+                                                                                                                         */
+function debounce(func) {var wait = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 500;var immediate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  // 清除定时器
+  if (timeout !== null) clearTimeout(timeout);
+  // 立即执行，此类情况一般用不到
+  if (immediate) {
+    var callNow = !timeout;
+    timeout = setTimeout(function () {
+      timeout = null;
+    }, wait);
+    if (callNow) typeof func === 'function' && func();
+  } else {
+    // 设置定时器，当最后一次操作后，timeout不会再被清除，所以在延时wait毫秒后执行func回调方法
+    timeout = setTimeout(function () {
+      typeof func === 'function' && func();
+    }, wait);
+  }
+}var _default =
+
+debounce;exports.default = _default;
 
 /***/ }),
 
@@ -13148,7 +13161,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 47:
+/***/ 48:
 /*!************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/user/index.js ***!
   \************************************************************************/
@@ -13156,12 +13169,12 @@ internalMixin(Vue);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "User", { enumerable: true, get: function get() {return _User.default;} });Object.defineProperty(exports, "Pic", { enumerable: true, get: function get() {return _Pic.default;} });var _User = _interopRequireDefault(__webpack_require__(/*! ./User */ 48));
-var _Pic = _interopRequireDefault(__webpack_require__(/*! ./Pic */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "User", { enumerable: true, get: function get() {return _User.default;} });Object.defineProperty(exports, "Pic", { enumerable: true, get: function get() {return _Pic.default;} });var _User = _interopRequireDefault(__webpack_require__(/*! ./User */ 49));
+var _Pic = _interopRequireDefault(__webpack_require__(/*! ./Pic */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /***/ }),
 
-/***/ 48:
+/***/ 49:
 /*!***********************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/user/User.js ***!
   \***********************************************************************/
@@ -13169,7 +13182,7 @@ var _Pic = _interopRequireDefault(__webpack_require__(/*! ./Pic */ 50));function
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 49));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -13194,7 +13207,18 @@ new _index.default([
 
 /***/ }),
 
-/***/ 49:
+/***/ 5:
+/*!*********************************************************!*\
+  !*** /Users/renchengkai/Desktop/project-qsk/pages.json ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 50:
 /*!*******************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/index.js ***!
   \*******************************************************************/
@@ -13227,18 +13251,7 @@ Enum;exports.default = _default;
 
 /***/ }),
 
-/***/ 5:
-/*!*********************************************************!*\
-  !*** /Users/renchengkai/Desktop/project-qsk/pages.json ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 50:
+/***/ 51:
 /*!**********************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/user/Pic.js ***!
   \**********************************************************************/
@@ -13246,7 +13259,7 @@ Enum;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 49));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -13275,7 +13288,7 @@ new _index.default([
 
 /***/ }),
 
-/***/ 53:
+/***/ 54:
 /*!*****************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/tabbar.js/index.js ***!
   \*****************************************************************************/
@@ -13283,11 +13296,11 @@ new _index.default([
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "TabBar", { enumerable: true, get: function get() {return _TabBar.default;} });var _TabBar = _interopRequireDefault(__webpack_require__(/*! ./TabBar */ 54));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "TabBar", { enumerable: true, get: function get() {return _TabBar.default;} });var _TabBar = _interopRequireDefault(__webpack_require__(/*! ./TabBar */ 55));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /*!******************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/tabbar.js/TabBar.js ***!
   \******************************************************************************/
@@ -13295,7 +13308,7 @@ Object.defineProperty(exports, "__esModule", { value: true });Object.definePrope
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 49));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -13323,7 +13336,7 @@ new _index.default([
 
 /***/ }),
 
-/***/ 70:
+/***/ 71:
 /*!*************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/user/School.js ***!
   \*************************************************************************/
@@ -13331,7 +13344,7 @@ new _index.default([
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 49));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -13405,7 +13418,7 @@ new _index.default([
 
 /***/ }),
 
-/***/ 71:
+/***/ 72:
 /*!**********************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/user/Sex.js ***!
   \**********************************************************************/
@@ -13413,7 +13426,7 @@ new _index.default([
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 49));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -13506,7 +13519,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 96:
+/***/ 97:
 /*!**********************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/api/exam.js ***!
   \**********************************************************/

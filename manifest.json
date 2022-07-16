@@ -68,5 +68,9 @@
     "uniStatistics" : {
         "enable" : false
     },
-    "vueVersion" : "2"
+    "vueVersion" : "2",
+	"networkTimeout": {
+		"uploadFile": 20000,
+		"request": 20000
+	}
 }

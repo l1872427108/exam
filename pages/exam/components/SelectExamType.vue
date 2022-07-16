@@ -1,63 +1,59 @@
 <template>
   <view>
-        <!-- <uni-transition :mode-class="['slide-right']"> -->
-            <view class="box">
 
-                <!-- 头部 -->
-                <view class="text-header">
-                    <view v-for="item in questionHeader" :key="item.type">
-                        <text v-if="question.questionType == item.type">
-                            {{questionIndex !== -1 ? questionIndex : ''}} {{item.name}} {{question.questionTopic}}
-                        </text>
-                    </view>
-				</view>
-            </view>
+    <!-- 头部 -->
+    <view class="text-header fz35 mt30 ml35">
+        <view v-for="item in questionHeader" :key="item.type">
+            <block v-if="question.questionType == item.type">
+                {{mode ? '' : `${questionIndex}、`}}{{item.name}} <text :decode="true">{{question.questionTopic}}</text>
+            </block>
+        </view>
+    </view>
 
+    <!-- 单选 -->
+    <view v-if="question.questionType === '0'">
+        
+        <view v-for="item in question.stemLists" :key="item.id" class="text-option mt30 ml35"
+            :class="{'text-option--action': item.options === singleActiveOpt}"
+            data-type="single" :data-option="item.options" @tap="selectOption">
+            <text>{{item.options}}.{{item.content}}</text>
+        </view>
+    </view>
 
-            <!-- 单选 -->
-            <view v-if="question.questionType === '0'">
-                
-                <view v-for="item in question.stemLists" :key="item.id" class="text-option"
-                    :class="{'option-action': item.options === singleActiveOpt}"
-                    data-type="single" :data-option="item.options" @click="selectOption">
-                    <text>{{item.options}}.{{item.content}}</text>
-                </view>
-			</view>
+    <!-- 多选 -->
+    <view v-if="question.questionType === '1'">
+        <view v-for="item in question.stemLists" :key="item.id" class="text-option mt30 ml35"
+            :class="multipleActiveOpt.indexOf(item.options) !== -1 ? 'text-option--action' : ''"
+            data-type="multiple" :data-option="item.options" @tap="selectOption">
+            <text>{{item.options}}.{{item.content}}</text>
+        </view>
+    </view>
 
-            <!-- 多选 -->
-            <view v-if="question.questionType === '1'">
-                <view v-for="item in question.stemLists" :key="item.id" class="text-option"
-                    :class="multipleActiveOpt.indexOf(item.options) !== -1 ? 'option-action' : ''"
-                    data-type="multiple" :data-option="item.options" @click="selectOption">
-                    <text>{{item.options}}.{{item.content}}</text>
-                </view>
-			</view>
+    <!-- 判断 -->
+    <view v-if="question.questionType === '2'">
+        <view :class="{'text-option--action': judgeActiveOpt === '0'}" class="text-option mt30 ml35" data-type="judge"
+            data-option="0" @tap="selectOption">
+            <text>正确</text>
+        </view>
+        <view :class="{'text-option--action': judgeActiveOpt === '1'}" class="text-option mt30 ml35"
+            data-type="judge" data-option="1" @tap="selectOption">
+            <text>错误</text>
+        </view>
+    </view>
 
-            <!-- 判断 -->
-            <view v-if="question.questionType === '2'">
-                <view :class="{'option-action': judgeActiveOpt === '0'}" class="text-option" data-type="judge"
-                    data-option="0" @click="selectOption">
-                    <text>正确。</text>
-                </view>
-                <view :class="{'option-action': judgeActiveOpt === '1'}" class="text-option"
-                    data-type="judge" data-option="1" @click="selectOption">
-                    <text>错误。</text>
-                </view>
-            </view>
+    <!-- 填空题 -->
+    <view v-if="question.questionType === '3'">
+        <view v-for="(item, index) in blankNum" :key="index" class="text-option mt30 ml35">
+            <input class="text-input fz30" ref="input" :value="inputData[index]" data-type="blank" @input="selectOption($event, index)" height="90"></input>
+        </view>
+    </view> 
 
-            <!-- 填空题 -->
-            <view v-if="question.questionType === '3'">
-                <view v-for="(item, index) in blankNum" :key="index" class="text-option">
-                    <input class="u-input" ref="input" :value="inputData[index]" data-type="blank" @input="selectOption($event, index)" height="90"></input>
-                </view>
-            </view> 
-
-            <!-- 问答题 -->
-            <view v-if="question.questionType === '4'">
-                <view class="text-option">
-                    <input class="u-textarea" type="textarea" data-type="areablank" height="500" :value="textarea" @input="selectOption"></input>
-                </view>
-            </view>
+    <!-- 问答题 -->
+    <view v-if="question.questionType === '4'">
+        <view class="text-option mt30 ml35">
+            <textarea maxlength="-1" class="text-textarea fz35 pv10" data-type="areablank" :value="textarea" @input="selectOption"></textarea>
+        </view>
+    </view>
 
             
         <!-- </uni-transition> -->
@@ -65,55 +61,45 @@
 </template>
 
 <script>
-import uniTransition from '@/components/uni-transition/uni-transition'
+import Question from '@/common/enum/exam/Question'
 export default {
     components: {
-        uniTransition
     },
     props: {
+        // 当前问题
         question: {
             type: Object,
             default: () => {}
         },
+        // 当前索引
         questionIndex: {
             type: Number,
             default: -1
         },
+        // 当前答案
         questionAnswer: {
             type: String,
             default: ''
+        },
+        mode: {
+            type: Boolean,
+            default: true
         }
     },
     data() {
         return {
-            questionHeader: [
-                {
-                    name: '【单选题】',
-                    type: '0'
-                },
-                {
-                    name: '【多选题】',
-                    type: '1'
-                },
-                {
-                    name: '【判断题】',
-                    type: '2'
-                },
-                {
-                    name: '【填空题】',
-                    type: '3'
-                },
-                {
-                    name: '【问答题】',
-                    type: '4'
-                }
-            ],
+            questionHeader: Question.data,
+            // 填空个数
             blankNum: 0,
-            answer: [],
+            // 单选
             singleActiveOpt: '',
+            // 判断
             judgeActiveOpt: '',
+            // 多选
             multipleActiveOpt: [],
+            // 填空
             inputData: [],
+            // 多行文本
             textarea: ''
         }
     },
@@ -123,37 +109,22 @@ export default {
     watch: {
         question: {
             handler(val) {
-                console.log('selectExamType', val)
                 if (val.questionType === '3') {
                     this.blankNum = this.question.questionTopic.match(/____&nbsp;/g).length;
                 }
                 this.handleSaveAnswer(val);
-            }
-        },
-        questionIndex(val) {
-            console.log(val);
-        },
-        questionAnswer(val) {
-            // console.log('selectExamType==>', val);
-            // if (this.question.questionType == '0') {
-            //     this.singleActiveOpt = val;
-            // } else if (this.question.questionType == '1') {
-            //     this.multipleActiveOpt = val ? val.split(',') : [];
-            // } else if (this.question.questionType === '2') {
-            //     this.judgeActiveOpt = val;
-            // } else if (this.question.questionType === '3') {
-            //     this.inputData = val ? val.split(',') : []
-            // } else if (this.question.questionType === '4') {
-            //     this.textarea = val
-            // }
+            },
+            immediate:true
         }
-
     },
     methods: {
         /**
          * 做答
          */
         selectOption(e, i) {
+            // if (!this.mode) {
+            //     return;
+            // }
             var type = e.currentTarget.dataset.type
             var option = e.currentTarget.dataset.option
             switch (type) {
@@ -187,6 +158,7 @@ export default {
                 // 问答
                 case 'areablank':
                     this.textarea = e.target.value;
+                    console.log(this.textarea);
                     this.$emit('valueChange', {option: this.textarea, questionIndex: this.questionIndex});
                     break;
             }
@@ -207,28 +179,64 @@ export default {
             } else if (val.questionType === '4') {
                 this.textarea = this.questionAnswer
             }
-        }
+        },
+
+        /**
+         * 获取html数据
+         */
+         getOptionData(name, type) {
+             return `${name} ${type}`
+         }
     }
 }
 </script>
 
-<style lang="scss">
-.u-input {
-	position: relative;
-	flex: 1;
-    display: flex;
-
-    font-size: 30rpx;
-    border-radius: 6rpx;
-    border: 1px solid #dcdfe6;
+<style lang="scss" scoped>
+.text-input {
+    border: 1rpx solid #dcdfe6;
+    height: 88rpx;
 }
 
-.u-textarea {
-    position: relative;
+.text-textarea {
+    border: 1rpx solid #dcdfe6;
     width: auto;
-    font-size: 28rpx;
-    padding: 10rpx 0;
-    border: 1px solid #dcdfe6;
-    border-radius: 6rpx;
 }
+
+
+.text-header {
+    width: 670rpx;
+    font-weight: 400;  
+    text-align: left;  
+    line-height: 50rpx;
+    display: flex;
+}
+
+
+.text-option {
+    width: 670rpx;
+    background: #eeeeee;
+    border-radius: 4rpx;
+    text-align: left;
+}
+
+.text-option text {
+    font-size: 36rpx;
+    font-weight: 400;
+    color: #888888;
+    line-height: 50rpx;
+    display: flex;
+    padding: 30rpx;
+    text-align: left;
+}
+
+
+.text-option--action {
+    background: #0076fb !important;
+
+    text {
+        color: #ffffff !important;
+    }
+}
+
+
 </style>

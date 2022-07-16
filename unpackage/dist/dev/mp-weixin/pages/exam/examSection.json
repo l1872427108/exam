@@ -1,11 +1,8 @@
 {
-  "navigationStyle": "default",
   "usingComponents": {
-    "uni-transition": "/components/uni-transition/uni-transition",
     "u-popup": "/components/u-popup/u-popup",
-    "u-input": "/components/u-input/u-input",
-    "navbar": "/components/uni-nav-bar/uni-nav-bar",
     "select-exam-type": "/pages/exam/components/SelectExamType",
-    "bottom-view": "/components/BottomView/index"
+    "bottom-view": "/components/BottomView/index",
+    "page-line": "/components/PageLine/index"
   }
 }

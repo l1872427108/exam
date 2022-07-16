@@ -11,25 +11,29 @@
 /* WEBPACK VAR INJECTION */(function(createApp) {__webpack_require__(/*! uni-pages */ 5);var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 4));
 var _App = _interopRequireDefault(__webpack_require__(/*! ./App */ 6));
 var _store = _interopRequireDefault(__webpack_require__(/*! ./store */ 10));
-var _app = __webpack_require__(/*! ./utils/app */ 33);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;
+var _app = __webpack_require__(/*! ./utils/app */ 33);
 
 
 
 
 
 
-_vue.default.config.productionTip = false;
-//自定义顶部
-var cuCustom = function cuCustom() {__webpack_require__.e(/*! require.ensure | components/NavCustom/NavCustom */ "components/NavCustom/NavCustom").then((function () {return resolve(__webpack_require__(/*! ./components/NavCustom/NavCustom.vue */ 115));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};
-_vue.default.component('cu-custom', cuCustom);
 
+
+
+
+var _debounce = _interopRequireDefault(__webpack_require__(/*! ./utils/debounce */ 36));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}wx.__webpack_require_UNI_MP_PLUGIN__ = __webpack_require__;_vue.default.config.productionTip = false; //自定义顶部
+var cuCustom = function cuCustom() {__webpack_require__.e(/*! require.ensure | components/NavCustom/NavCustom */ "components/NavCustom/NavCustom").then((function () {return resolve(__webpack_require__(/*! ./components/NavCustom/NavCustom.vue */ 116));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};_vue.default.component('cu-custom', cuCustom);
 _App.default.mpType = 'app';
+
+_vue.default.prototype.$eventBus = new _vue.default();
 
 // 挂载全局函数
 _vue.default.prototype.$toast = _app.showToast;
 _vue.default.prototype.$success = _app.showSuccess;
 _vue.default.prototype.$error = _app.showError;
 _vue.default.prototype.$navTo = _app.navTo;
+_vue.default.prototype.$debounce = _debounce.default;
 
 // 实例化应用
 var app = new _vue.default(_objectSpread({

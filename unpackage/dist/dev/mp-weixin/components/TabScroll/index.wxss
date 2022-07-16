@@ -61,6 +61,6 @@
   line-height: 90rpx;
 }
 .exam-nav__item--active.data-v-1906a43a {
-  border-bottom: 4rpx solid #409EFF;
+  border-bottom: 4rpx solid #0076fb;
 }
 

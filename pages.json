@@ -29,11 +29,11 @@
         {
             "path": "pages/exam/examSection",
             "style": {
-                "navigationStyle": "default"
+                // "navigationStyle": "default"
             }
         },
         {
-            "path": "pages/exam/examScorew",
+            "path": "pages/exam/examScore",
             "style": {}
         },
         {
@@ -58,7 +58,7 @@
         "list": [
             {
                 "name": "mine",
-                "path": "pages/exam/examDetail"
+                "path": "pages/exam/examScore"
             }
         ]
     }

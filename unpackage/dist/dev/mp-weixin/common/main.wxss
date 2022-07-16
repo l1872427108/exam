@@ -97,16 +97,16 @@
 /* z-index
 -------------------------- */
 .font-primary {
-  color: #666666;
+  color: #333333;
 }
 .font-secondary {
-  color: #333333;
+  color: #666666;
 }
 .font-tertiary {
   color: #FFFFFF;
 }
 .font-quaternary {
-  color: #409EFF;
+  color: #0076fb;
 }
 .bg-primary {
   background-color: #F1F1F1;
@@ -115,7 +115,7 @@
   background-color: #FFFFFF;
 }
 .bg-tertiary {
-  background-color: #409EFF;
+  background-color: #0076fb;
 }
 .fz25 {
   font-size: 25rpx;
@@ -139,36 +139,36 @@
   font-size: 55rpx;
 }
 .ml10 {
-  margin-l: 10rpx;
+  margin-left: 10rpx;
 }
 .mr10 {
-  margin-r: 10rpx;
+  margin-right: 10rpx;
 }
 .mt10 {
-  margin-t: 10rpx;
+  margin-top: 10rpx;
 }
 .mb10 {
-  margin-b: 10rpx;
+  margin-bottom: 10rpx;
 }
 .pl10 {
-  padding-l: 10rpx;
+  padding-left: 10rpx;
 }
 .pr10 {
-  padding-r: 10rpx;
+  padding-right: 10rpx;
 }
 .pt10 {
-  padding-t: 10rpx;
+  padding-top: 10rpx;
 }
 .pb10 {
-  padding-b: 10rpx;
+  padding-bottom: 10rpx;
 }
 .pv10 {
   padding-top: 10rpx;
   padding-bottom: 10rpx;
 }
 .ph10 {
-  padding-left: 10Rpx;
-  padding-right: 10Rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
 }
 .mh10 {
   margin-left: 10rpx;
@@ -178,36 +178,36 @@
   padding: 10rpx;
 }
 .ml15 {
-  margin-l: 15rpx;
+  margin-left: 15rpx;
 }
 .mr15 {
-  margin-r: 15rpx;
+  margin-right: 15rpx;
 }
 .mt15 {
-  margin-t: 15rpx;
+  margin-top: 15rpx;
 }
 .mb15 {
-  margin-b: 15rpx;
+  margin-bottom: 15rpx;
 }
 .pl15 {
-  padding-l: 15rpx;
+  padding-left: 15rpx;
 }
 .pr15 {
-  padding-r: 15rpx;
+  padding-right: 15rpx;
 }
 .pt15 {
-  padding-t: 15rpx;
+  padding-top: 15rpx;
 }
 .pb15 {
-  padding-b: 15rpx;
+  padding-bottom: 15rpx;
 }
 .pv15 {
   padding-top: 15rpx;
   padding-bottom: 15rpx;
 }
 .ph15 {
-  padding-left: 15Rpx;
-  padding-right: 15Rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
 }
 .mh15 {
   margin-left: 15rpx;
@@ -217,36 +217,36 @@
   padding: 15rpx;
 }
 .ml20 {
-  margin-l: 20rpx;
+  margin-left: 20rpx;
 }
 .mr20 {
-  margin-r: 20rpx;
+  margin-right: 20rpx;
 }
 .mt20 {
-  margin-t: 20rpx;
+  margin-top: 20rpx;
 }
 .mb20 {
-  margin-b: 20rpx;
+  margin-bottom: 20rpx;
 }
 .pl20 {
-  padding-l: 20rpx;
+  padding-left: 20rpx;
 }
 .pr20 {
-  padding-r: 20rpx;
+  padding-right: 20rpx;
 }
 .pt20 {
-  padding-t: 20rpx;
+  padding-top: 20rpx;
 }
 .pb20 {
-  padding-b: 20rpx;
+  padding-bottom: 20rpx;
 }
 .pv20 {
   padding-top: 20rpx;
   padding-bottom: 20rpx;
 }
 .ph20 {
-  padding-left: 20Rpx;
-  padding-right: 20Rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
 }
 .mh20 {
   margin-left: 20rpx;
@@ -256,36 +256,36 @@
   padding: 20rpx;
 }
 .ml25 {
-  margin-l: 25rpx;
+  margin-left: 25rpx;
 }
 .mr25 {
-  margin-r: 25rpx;
+  margin-right: 25rpx;
 }
 .mt25 {
-  margin-t: 25rpx;
+  margin-top: 25rpx;
 }
 .mb25 {
-  margin-b: 25rpx;
+  margin-bottom: 25rpx;
 }
 .pl25 {
-  padding-l: 25rpx;
+  padding-left: 25rpx;
 }
 .pr25 {
-  padding-r: 25rpx;
+  padding-right: 25rpx;
 }
 .pt25 {
-  padding-t: 25rpx;
+  padding-top: 25rpx;
 }
 .pb25 {
-  padding-b: 25rpx;
+  padding-bottom: 25rpx;
 }
 .pv25 {
   padding-top: 25rpx;
   padding-bottom: 25rpx;
 }
 .ph25 {
-  padding-left: 25Rpx;
-  padding-right: 25Rpx;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
 }
 .mh25 {
   margin-left: 25rpx;
@@ -295,36 +295,36 @@
   padding: 25rpx;
 }
 .ml30 {
-  margin-l: 30rpx;
+  margin-left: 30rpx;
 }
 .mr30 {
-  margin-r: 30rpx;
+  margin-right: 30rpx;
 }
 .mt30 {
-  margin-t: 30rpx;
+  margin-top: 30rpx;
 }
 .mb30 {
-  margin-b: 30rpx;
+  margin-bottom: 30rpx;
 }
 .pl30 {
-  padding-l: 30rpx;
+  padding-left: 30rpx;
 }
 .pr30 {
-  padding-r: 30rpx;
+  padding-right: 30rpx;
 }
 .pt30 {
-  padding-t: 30rpx;
+  padding-top: 30rpx;
 }
 .pb30 {
-  padding-b: 30rpx;
+  padding-bottom: 30rpx;
 }
 .pv30 {
   padding-top: 30rpx;
   padding-bottom: 30rpx;
 }
 .ph30 {
-  padding-left: 30Rpx;
-  padding-right: 30Rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
 }
 .mh30 {
   margin-left: 30rpx;
@@ -334,36 +334,36 @@
   padding: 30rpx;
 }
 .ml35 {
-  margin-l: 35rpx;
+  margin-left: 35rpx;
 }
 .mr35 {
-  margin-r: 35rpx;
+  margin-right: 35rpx;
 }
 .mt35 {
-  margin-t: 35rpx;
+  margin-top: 35rpx;
 }
 .mb35 {
-  margin-b: 35rpx;
+  margin-bottom: 35rpx;
 }
 .pl35 {
-  padding-l: 35rpx;
+  padding-left: 35rpx;
 }
 .pr35 {
-  padding-r: 35rpx;
+  padding-right: 35rpx;
 }
 .pt35 {
-  padding-t: 35rpx;
+  padding-top: 35rpx;
 }
 .pb35 {
-  padding-b: 35rpx;
+  padding-bottom: 35rpx;
 }
 .pv35 {
   padding-top: 35rpx;
   padding-bottom: 35rpx;
 }
 .ph35 {
-  padding-left: 35Rpx;
-  padding-right: 35Rpx;
+  padding-left: 35rpx;
+  padding-right: 35rpx;
 }
 .mh35 {
   margin-left: 35rpx;
@@ -373,36 +373,36 @@
   padding: 35rpx;
 }
 .ml40 {
-  margin-l: 40rpx;
+  margin-left: 40rpx;
 }
 .mr40 {
-  margin-r: 40rpx;
+  margin-right: 40rpx;
 }
 .mt40 {
-  margin-t: 40rpx;
+  margin-top: 40rpx;
 }
 .mb40 {
-  margin-b: 40rpx;
+  margin-bottom: 40rpx;
 }
 .pl40 {
-  padding-l: 40rpx;
+  padding-left: 40rpx;
 }
 .pr40 {
-  padding-r: 40rpx;
+  padding-right: 40rpx;
 }
 .pt40 {
-  padding-t: 40rpx;
+  padding-top: 40rpx;
 }
 .pb40 {
-  padding-b: 40rpx;
+  padding-bottom: 40rpx;
 }
 .pv40 {
   padding-top: 40rpx;
   padding-bottom: 40rpx;
 }
 .ph40 {
-  padding-left: 40Rpx;
-  padding-right: 40Rpx;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
 }
 .mh40 {
   margin-left: 40rpx;
@@ -412,36 +412,36 @@
   padding: 40rpx;
 }
 .ml45 {
-  margin-l: 45rpx;
+  margin-left: 45rpx;
 }
 .mr45 {
-  margin-r: 45rpx;
+  margin-right: 45rpx;
 }
 .mt45 {
-  margin-t: 45rpx;
+  margin-top: 45rpx;
 }
 .mb45 {
-  margin-b: 45rpx;
+  margin-bottom: 45rpx;
 }
 .pl45 {
-  padding-l: 45rpx;
+  padding-left: 45rpx;
 }
 .pr45 {
-  padding-r: 45rpx;
+  padding-right: 45rpx;
 }
 .pt45 {
-  padding-t: 45rpx;
+  padding-top: 45rpx;
 }
 .pb45 {
-  padding-b: 45rpx;
+  padding-bottom: 45rpx;
 }
 .pv45 {
   padding-top: 45rpx;
   padding-bottom: 45rpx;
 }
 .ph45 {
-  padding-left: 45Rpx;
-  padding-right: 45Rpx;
+  padding-left: 45rpx;
+  padding-right: 45rpx;
 }
 .mh45 {
   margin-left: 45rpx;
@@ -809,7 +809,7 @@
 page {
   background-color: #F1F1F1;
   font-size: 28rpx;
-  color: #666666;
+  color: #333333;
   font-family: Helvetica Neue, Helvetica, sans-serif;
 }
 view,
@@ -850,7 +850,7 @@ radio {
 ----------------------- */
 .button-direction {
   font-size: 28rpx;
-  background: #409EFF;
+  background: #0076fb;
   color: #FFFFFF;
   height: 90rpx;
   line-height: 90rpx;

@@ -48,12 +48,21 @@
 				type: String,
 				default: ''
 			},
+            to: {
+                type: String,
+                default: ''
+            }
 		},
 		methods: {
 			backPage() {
-				uni.navigateBack({
-					delta: 1
-				});
+                if (!this.to) {
+                    this.$eventBus.$emit('back')
+                    uni.navigateBack({
+                        delta: 1
+                    });
+                } else {
+                    this.$navTo(this.to, {}, 'redirectTo')
+                }
 			}
 		}
 	}
@@ -116,7 +125,7 @@
 
 
 .bg-gradual-blue {
-	background-image: linear-gradient(45deg, #0081ff, #1cbbb4);
+	background-color: #0076fb;
 	color: #ffffff;
 }
 

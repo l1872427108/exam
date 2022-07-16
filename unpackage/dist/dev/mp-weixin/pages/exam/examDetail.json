@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "u-popup": "/components/u-popup/u-popup",
-    "select-exam-type": "/pages/exam/components/SelectExamTypes"
+    "select-exam-detail": "/pages/exam/components/SelectExamDetail"
   }
 }

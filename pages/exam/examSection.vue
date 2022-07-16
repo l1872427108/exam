@@ -1,127 +1,121 @@
 <template>
-  <view class="bg-secondary" style="height: 100vh;">
+  <view class="bg-secondary" :style="{height: mode ? '100vh' : ''}" v-if="isShow">
+    
+    <!-- 导航栏 -->
+    <cu-custom bgColor="#FFF" :isBack="false"></cu-custom>
 
     <!-- 顶部收缩 -->
-    <view class="slot-wrap">
-        <view class="exam-exit" @click="exitExam">
-            <text>退出</text>
+    <view class="exam-app ph40">
+        <view class="exam-app__left" @click="exitExam">
+            <image class="exam-app__image" src="/static/fanhui.png" />
         </view>
-        <view class="right_app" @tap="openTab">十</view>
+        <view v-show="mode" class="exam-app__right" @tap="openTab">
+            <image class="exam-app__image" src="/static/exam_app.svg" />
+        </view>
     </view>
 
-    <!-- 题目弹框 -->
-    <uPopup v-model="showApp" mode="top" border-radius="20">
+    <!-- 题号弹框 -->
+    <uPopup zIndex="9999" v-model="showApp" mode="top" border-radius="20">
 
-        <view class="app-content">
-                <!-- <view class="app-header">
-                    <view class="exam-title ellipse-line" style="text-align: center;">
-                        {{testAnswerData.questionHomeName}}
-                    </view>
-                    <view class="close-app" @click="closeTab">--</view>
-                </view> -->
-            <view class="datilist">
-                <view :class="[item ? 'dati-suc' : '']" @click="goQuestion(index)" class="dati-item" v-for="(item, index) in answer"
+        <view class="popup">
+            <view class="popup__list pl10">
+                <view :class="[item.answer || item.userChoiceList ? 'popup__list-item--active' : '']" @tap="goQuestion(index)" class="popup__list-item fz35" v-for="(item, index) in answer"
                     :key="index">
                     <text>{{index + 1}}</text>
                 </view>
             </view>
-            <view class="exam-btn">
-                <button class="exam-sumbit" @click="submitExam"><text>交 卷</text></button>
+            <view class="popup__btn">
+                <button class="button-direction" @tap="$debounce(submitExam, 500, true)"><text>交 卷</text></button>
             </view>
         </view>
     </uPopup>
 
-        <view class="time-header">
-            <view class="time-left">
-                <text>剩余时间</text>
+    <!-- 时间 -->
+    <view class="time ph30">
+        <view class="time__text fz30">
+            <text>剩余时间</text>
+        </view>
+        <view class="time__num">
+            <view class="time__num-item radius10 fz25">
+                <text>{{examTime.hour}}</text>
             </view>
-            <view class="time-num">
-                <view class="item">
-                    <text>{{examTime.hour}}</text>
-                </view>
-                <view class="dot">
-                    <text>:</text>
-                </view>
-                <view class="item">
-                    <text>{{examTime.min}}</text>
-                </view>
-                <view class="dot">
-                    <text>:</text>
-                </view>
-                <view class="item">
-                    <text>{{examTime.second}}</text>
-                </view>
+            <view class="time__num-dot">
+                <text>:</text>
             </view>
-            <view class="time-right" v-if="mode">
-                <text class="that-num">{{nowQuestionNum}}</text>
-                <text class="count">/ {{questionCount}}</text>
+            <view class="time__num-item radius10 fx25">
+                <text>{{examTime.min}}</text>
+            </view>
+            <view class="time__num-dot">
+                <text>:</text>
+            </view>
+            <view class="time__num-item radius10 fx25">
+                <text>{{examTime.second}}</text>
             </view>
         </view>
-        <view class="line"></view>
+        <view class="time__count" v-if="mode">
+            <text class="time__count-now fz40 pl10">{{nowQuestionNum}}</text>
+            <text class="time__count-total fz30">/ {{questionCount}}</text>
+        </view>
+    </view>
+
+    <!-- 线条 -->
+    <PageLine></PageLine>
 
 
-        <uni-transition :mode-class="['slide-right']" :show="showQuestion">
-            <!-- 单题 -->
-            <view v-show="mode">
-                <SelectExamType :questionIndex="nowQuestionNum" :questionAnswer="getCurrentAnswer(nowQuestionNum)" :question="question" @valueChange="valueChange"></SelectExamType>
+    <!-- 题目 -->
+    <!-- 单题 -->
+    <view v-if="mode">
+        <SelectExamType :mode="mode" :questionIndex="nowQuestionNum" :questionAnswer="getCurrentAnswer(nowQuestionNum, question)" :question="question" @valueChange="valueChange"></SelectExamType>
+    </view>
+
+    <!-- 整卷 -->
+    <view v-else class="exam-main">
+        <view v-for="(item, index) in questions" :key="item.id">
+            <SelectExamType :mode="mode" :questionIndex="index + 1" :questionAnswer="getCurrentAnswer(index + 1, item)" :question="item" @valueChange="valueChange"></SelectExamType>
+        </view>
+    </view>
+
+
+    <!-- 底部按钮部分 -->
+    <view class="footer fixed">
+        <view class="footer-content ph40">
+            <view class="footer-content__left">
+                <view @click="mode = !mode">{{mode ? '整卷' : '单卷'}}</view>
             </view>
-
-            <!-- 整卷 -->
-            <view v-show="!mode">
-                <view v-for="(item, index) in questions" :key="item.id">
-                    <SelectExamType :questionIndex="index" :questionAnswer="getCurrentAnswer(index)" :question="item" @valueChange="valueChange"></SelectExamType>
+            <view class="footer-content__right">
+                <view v-show="mode" class="footer-content__right-item fz30" @tap="preQuestion">
+                    <text>上一题</text>
+                </view>
+                <view v-show="mode" class="footer-content__right-item fz30" @tap="nextQuestion">
+                    <text>下一题</text>
+                </view>
+                <view class="footer-content__right-item fz30" @tap="$debounce(submitExam)">
+                    <text>交卷</text>
                 </view>
             </view>
-
-            <bottom-view v-show="!mode"></bottom-view>
-        </uni-transition>
-
-
-        <!-- 底部按钮部分 -->
-        <view class="footer">
-			<view class="footer-content">
-                <view class="footer-left">
-                    <view @click="mode = !mode">{{mode ? '单题' : '整卷'}}</view>
-                </view>
-				<view class="footer-right">
-					<view class="right-item" @click="preQuestion">
-						<text>上一题</text>
-					</view>
-					<view class="right-item" @click="nextQuestion">
-						<text>下一题</text>
-					</view>
-                    <!-- 到达最后一题就可以看到此按钮 -->
-                    <view :loading="loading" class="right-item" @click="submitExam">
-                        <text>{{handleText}}</text>
-                    </view>
-				</view>
-			</view>
-		</view>
+        </view>
+    </view>
   </view>
 </template>
 
 <script>
 import uPopup from '@/components/u-popup/u-popup'
-import uniTransition from '@/components/uni-transition/uni-transition'
-import UInput from '@/components/u-input/u-input'
-import Navbar from '@/components/uni-nav-bar/uni-nav-bar'
 import SelectExamType from './components/SelectExamType'
 import * as Utils from '@/utils/util'
 import {getOneExamPaper, subimtExamAnswer} from '@/api/exam'
 import BottomView from '@/components/BottomView'
+import * as UserApi from '@/api/user'
+import storage from '@/utils/storage';
+import PageLine from '../../components/PageLine/index'
 export default {
     components: {
         uPopup,
-        uniTransition,
-        UInput,
-        Navbar,
         SelectExamType,
-        BottomView
+        BottomView,
+        PageLine
     },
     data() {
         return {
-            // 试卷ID
-            examId: '',
             // 显示下拉框
             showApp: false,
             // 时间
@@ -131,67 +125,85 @@ export default {
                 second: '00'
             },
             // 现在作答题号
-            nowQuestionNum: 0,
+            nowQuestionNum: 1,
             // 作答题目总数
 			questionCount: 1,
             // 当前展示的题目
             question: {},
             // 做题时间
             questionTime: '',
-            showQuestion: true,
             // 所有的题目
             questions: [],
             // 收集做题答案
             answer: [],
-            // 是否整卷预览
-            isPreview: false,
-            // 交卷文字
-            handleText: '交卷',
-            loading: false,
+            // 交卷锁
+            isButton: false,
             // 做题模式
-            mode: true
+            mode: true,
+            // 用户信息
+            userInfo: {},
+            isShow: false,
+            logoutNum: 0
         }
     },
 
     watch: {
-        // 监听当前显示的题
-        // question() {
-        //     // setTimeout(() => {
-        //         // 展示题目
-        //         this.showQuestion = true
-                
-        //     // }, 300)
-        // },
         // 监听当前题号变化 统一对上一题/下一题处理逻辑
         nowQuestionNum(index) {
-            console.log(index);
-            // 刷新题目
-            // this.showQuestion = false
-            // 通过最新的下标切换到下一题 
-            this.question = this.questions[index];
-        },
-        mode() {
+            this.question = this.questions[index - 1];
         }
     },
-
-    onLoad(option) {
-        // 获取examId
-        // this.examId = options.id
-        let examId = '1534519261341425666'
-        if (examId && parseInt(examId) !== 0) {
-            this.getPageData()
-            this.showTime()
-            setInterval(() => {
-                this.showTime()
-            }, 1000);
+    onHide() {
+        // 记录当前时间, 清除定时器
+        if (this.timer) {
+            clearInterval(this.timer);
         }
+        // 保存当前时间
+        this.nowTime = Date.now();
+        // 退出一次
+        this.logoutNum++;
+    },
+    onShow() {
+        // 第一次展示是 0 不会走
+        if (this.logoutNum !== 0 && this.logoutNum < 3) {
+            this.$toast(`您已经退出${this.logoutNum}次，3次会自动提交`);
+        } else if (this.logoutNum >= 3) {
+            this.$toast(`一秒后将自动提交`);
+            setTimeout(() => {
+                this.doHandler()
+            }, 1000)
+        }
+        // 第一次展示是没有的 nowTime
+        if (this.nowTime) {
+            // 新的时间
+            let _now = Date.now();
+            console.log(_now, this.nowTime);
+            // 比对
+            let lastTime = this.questionTime - parseInt((_now - this.nowTime) / 1000);
+            lastTime <= 0 ? this.questionTime = 0 : this.questionTime = lastTime;
+            // 初始化时间
+            this.initTime();
+        }
+    },
+    onLoad(option) {
+        this.examId = option.id;
+        if (this.examId && parseInt(this.examId) !== 0) {
+            this.getPageData()
+            this.getUserInfo();
+            // 初始化时间
+            this.initTime();
+        }
+    },
+    onUnload() {
+        this.nowTime = null;
+        clearInterval(this.timer)
     },
 
     methods: {
-        getCurrentAnswer(index) {
-            const current = this.answer[index]
+        getCurrentAnswer(index, question) {
+            const current = this.answer[index - 1]
             if (typeof current !== 'object') return ''
-            if (this.question.questionType === '1') {
+            if (question.questionType === '1' || question.questionType === '3') {
                 return current.userChoiceList
             } else {
                 return current.answer;
@@ -201,23 +213,38 @@ export default {
          * 获取试卷信息
          */
         getPageData() {
-            const param = {"examPaperId": "1534519261341425666"};
+            const param = {"examPaperId": this.examId};
             getOneExamPaper(param).then(result => {
                 // 拆分数据
                 const exam = result.data.examPaperVo;
                 // 初始化时间
                 this.questionTime = exam.suggestTime * 60;
+                this.totalTime = exam.suggestTime;
                 // 初始化题目
                 exam.paperTitleList.forEach(function(item) {
                     this.push(...item.questionList);
                 }, this.questions)
                 // 初始化题数
-                this.questionCount = this.questions.length - 1
+                this.questionCount = this.questions.length;
                 // 初始化题目答案个数
                 this.answer = new Array(this.questions.length)
                 // 初始化当前要展示的题目
-                this.question = this.questions[this.nowQuestionNum];
+                this.question = this.questions[this.nowQuestionNum - 1];
+                this.isShow = true;
             })
+        },
+
+        /**
+         * 获取当前用户信息
+         */
+        getUserInfo() {
+            UserApi.getUserInfo({})
+                .then(result => {
+                    this.userInfo = result.data.qskInfo
+                })
+                .catch(err => {
+                    reject(err)
+                })
         },
 
         /**
@@ -229,14 +256,14 @@ export default {
             // 交给answer数组
             const id = this.question.id;
             const obj = {id};
-            if (this.question.questionType === '1') {
+            if (this.question.questionType === '1' || this.question.questionType === '3') {
                 obj.userChoiceList = data.option;
 
             } else {
                 
                 obj.answer = data.option;
             }
-            this.answer[this.nowQuestionNum] = obj;
+            this.answer[this.nowQuestionNum - 1] = obj;
             console.log('answer====>', this.answer);
         },
 
@@ -260,8 +287,8 @@ export default {
          */
         preQuestion() {
             var preNum = this.nowQuestionNum - 1;
-            if (preNum < 0) {
-                this.nowQuestionNum = 0
+            if (preNum < 1) {
+                this.nowQuestionNum = 1
             } else {
                 this.nowQuestionNum = preNum
             }
@@ -273,20 +300,11 @@ export default {
         nextQuestion() {
             var nextNum = this.nowQuestionNum + 1;
             // 判断是否是最后一道题
-            if (nextNum > this.questions.length - 1) {
+            if (nextNum > this.questions.length) {
                 return false;
             } else {
                 this.nowQuestionNum = nextNum;
             }
-        },
-
-        /**
-         * 预览试卷
-         */
-        previewQuestion() {
-            // 改变状态
-            // 显示到另一张卷子
-            this.isPreview = true;
         },
 
         /**
@@ -305,26 +323,15 @@ export default {
             uni.showModal({
                 title: '提示',
                 content: '退出将强制交卷',
+                confirmColor: '#0076fb',
                 showCancel: true,
                 success(res) {
                     if (res.confirm) {
                         // 交卷操作
-                        that.submitExam();
+                        that.doHandler();
                     }
                 }
             })
-        },
-
-        /**
-         * 作答
-         */
-        selectOption(e) {
-            var type = e.currentTarget.dataset.type;
-            var option = e.currentTarget.dataset.option
-            // 加入到对应的答案列表中
-            
-            // 分别可以判断到四种类型的答案，然后分别添加
-                
         },
 
         /**
@@ -333,54 +340,46 @@ export default {
         submitExam() {
             const that = this;
             const notAnswered = this.countNotAnswered();
-            console.log(notAnswered)
             let msg = '确认要交卷吗?'
-            if (notAnswered > 0) {
-                msg = '您还有' + notAnswered + '题未作答，确认要交卷吗?'
+            if (notAnswered !== 0) {
+                this.$toast('您还有' + notAnswered + '题未作答，请作答完毕');
+                return;
             }
-
-             uni.showModal({
-                title: '提示',
-                content: msg,
-                showCancel: true,
-                success(res) {
-                    if (res.confirm) {
-                        that.doHandler();
-                    }
-                    
-                }
-            })
+            // 够了
+            this.doHandler();
         },
 
         /**
          * 交卷请求
          */
         doHandler() {
-            this.handleText = '正在交卷，请稍等...'
-            // this.loading = true;
+            if (this.isButton) return;
+            this.isButton = true;
             // 发送请求
+            this.$toast('正在交卷中...');
             const collectAnswer = {
-            //     doTime: '0',
-            //     paperId: "1534519261341425666",
-            //     userId: '1531911455257956354',
-            //     userName: '高禄',
-            //     userAnswerList: this.answer
-            // }
-            doTime: "0",
-            paperId: "1534519261341425666",
-            // userAnswerList: [{id: "1533792655186628609", answer: "1212"}, {id: "1533792658512711681", answer: "121"}, {}, {}],
-            userId: "1531911455257956354",
-            userName: "高禄",
-            userAnswerList: this.answer
+                doTime: this.totalTime - parseInt(this.questionTime / 60) + '',
+                paperId: this.examId,
+                userId: this.userInfo.id,
+                userName: this.userInfo.userName,
+                userAnswerList: this.answer
             }
             subimtExamAnswer(collectAnswer)
                 .then(result => {
                     // 将成绩发送到考试结果页面
                     let score = result.data.score;
+                    console.log(score);
+                    // 清空lastTime
+                    storage.remove('lastTime');
                     // 跳转路径
+                    this.$navTo('pages/exam/examScore', {score}, 'redirectTo')
                 })
                 .catch(err => {
                     console.log(err);
+                    this.isButton = false;
+                })
+                .finally(() => {
+                    this.isButton = false;
                 })
             
         },
@@ -391,16 +390,19 @@ export default {
         showTime() {
             try {
                 // 毫秒数
-                var time = this.questionTime * 1000,
+                if (this.questionTime !== '') {
+                    let time = this.questionTime * 1000,
                     timeh = Math.floor(time / (1000 * 60 * 60) % 24), //计算小时数
 					timem = Math.floor(time / (1000 * 60) % 60), //计算分钟数
 					times = Math.floor(time / 1000 % 60); //计算秒数
-                this.examTime.hour = Utils.addPreZero(timeh);
-                this.examTime.min = Utils.addPreZero(timem);
-                this.examTime.second = Utils.addPreZero(times);
-                // 判断是否考试结束
-                if (timeh == 0 && timem == 0 && times == 0) {
-                    // 交卷操作
+                    this.examTime.hour = Utils.addPreZero(timeh);
+                    this.examTime.min = Utils.addPreZero(timem);
+                    this.examTime.second = Utils.addPreZero(times);
+                    // 判断是否考试结束
+                    if (timeh === 0 && timem === 0 && times === 0) {
+                        // 交卷操作
+                        this.doHandler();
+                    }
                 }
             } catch (err) {
                 console.log(err)
@@ -411,385 +413,149 @@ export default {
          * 统计还有多少题未做
          */
         countNotAnswered() {
-            let notAnswered = 0;
-            console.log(this.answer)
-            for (let i = 0; i < this.answer.length; i++) {
-                if (!this.answer[i]) {
-                    notAnswered += 1;
+            const len = this.answer.length;
+            let notAnswered = len;
+            for (let i = 0; i < len; i++) {
+                if (this.answer[i]?.answer || this.answer[i]?.userChoiceList) {
+                    notAnswered -= 1;
                 }
             }
+            console.log(notAnswered);
             return notAnswered
+        },
+
+        initTime() {
+            this.showTime();
+            this.timer = setInterval(() => {
+                this.questionTime--;
+                this.showTime()
+            }, 1000);
         }
 
     }
 }
 </script>
 
-<style lang="scss">
-.slot-wrap {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-		padding: 0 40rpx;
-		flex: 1;
-
-		.exam-exit {
-			font-size: 36rpx;
-			font-family: PingFangSC, PingFangSC-Regular;
-			font-weight: 400;
-			text-align: left;
-			color: #333333;
-			line-height: 48rpx;
-		}
-
-		.right_app {
-			/* background-image: url('../../static/exam_app.svg'); */
-			background-repeat: no-repeat;
-			background-size: 100%;
-			height: 49rpx;
-			width: 49rpx;
-		}
-
-	}
-
-.pop {
-    margin-top: 100px !important;
+<style lang="scss" scoped>
+@import "@/styles/settings/var.scss";
+@import "@/styles/tools/index.scss";
+.exam-app {
+    @include box-center($justify: space-between);
+    .exam-app__left, .exam-app__right {
+        @include dimensions(49rpx, 49rpx);
+    }
+    .exam-app__image {
+        @include dimensions(100%, 100%);
+    }
 }
 
-.app-content {
-		margin: 0 40rpx 25rpx 40rpx;
+.popup {
+    padding-top: 150rpx;
+    margin: 0 40rpx 25rpx 40rpx;
 
-		.exam-btn {
-			padding: 0rpx 200rpx 0 200rpx;
+    .popup__btn {
+        padding: 0rpx 200rpx 0 200rpx;
+    }
 
-			.exam-sumbit {
-				height: 88rpx;
-				background: #fff;
-				border-radius: 10rpx;
-				font-size: 36rpx;
-				line-height: 88rpx;
-				color: #2db0fe;
-				text-align: center;
+    .popup__list {
+        @include grid($flex-wrap: wrap, $justify-content: space-start);
+    }
 
-			}
-		}
-
-
-
-		.datilist {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-start;
-			padding-left: 10rpx;
-
-			/* .dati-err {
-				background: #ff4545;
-				color: #fff;
-			} */
-            .dati-suc {
-                background: #2db0fe !important;
-                color: #fff;
-            }
-
-			.dati-none {
-				border: 4rpx solid #2db0fe;
-				color: #2db0fe;
-
-				text {
-					line-height: 76rpx !important;
-				}
-			}
-
-			.dati-item {
-				width: 81.66666rpx;
-				height: 81.66666rpx;
-				margin: 15rpx;
-				border-radius: 100%;
-				text-align: center;
-                background-color: #888888;
-
-				text {
-					font-size: 36rpx;
-					line-height: 81rpx;
-				}
-			}
-		}
-
-		.app-header {
-			height: 88rpx;
-			display: flex;
-			width: 100vw;
-			padding-left: 60rpx;
-			padding-right: 120rpx;
-			.close-app {
-				width: 50rpx;
-				height: 50rpx;
-				position: absolute;
-				right: 40rpx;
-				/* background-image: url(../../static/app_close.svg); */
-				background-repeat: no-repeat;
-				background-size: 100%;
-				top: 18rpx;
-				top: calc(18rpx + env(safe-area-inset-top)) !important;
-			}
-
-			.exam-title {
-				position: relative;
-				line-height: 88rpx;
-				text-align: center;
-				font-size: 32rpx;
-				flex: 1;
-				text {
-					width: 520rpx;
-					height: 88rpx;
-					font-family: PingFangSC, PingFangSC-Light;
-					font-weight: 300;
-					text-align: center;
-					color: #333333;
-					line-height: 88rpx;
-				}
-			}
-		}
-	}
+    .popup__list-item {
+        @include dimensions(81rpx, 81rpx);
+        margin: 15rpx;
+        border-radius: 100%;
+        text-align: center;
+        border: 1px solid $border-color-base;
+        line-height: 81rpx;
+    }
+    .popup__list-item--active {
+        background: $background-color-tertiary;
+        color: $color-text-tertiary;
+    }
+}
 
 
-.time-header {
+.time {
+    height: 120rpx;
+    @include grid($justify-content: space-start);
 
-		padding: 0 32rpx;
-		display: flex;
-		height: 120rpx;
-		justify-content: space-start;
+    .time__text {
+        height: 120rpx;
+        text-align: right;
+        color: $color-text-secondary;
+        line-height: 120rpx;
+    }
 
-		.time-left {
-			width: 130rpx;
-			height: 120rpx;
-			font-size: 28rpx;
-			font-weight: 300;
-			text-align: right;
-			color: #333333;
-			line-height: 120rpx;
-		}
+    .time__num {
+        @include dimensions(200rpx, 120rpx);
+        padding: 37rpx 15rpx;
+        @include grid($justify-content: space-between);
+    }
+    .time__num-item {
+        @include dimensions(44rpx, 46rpx);
+        background: #333333;
+        color: $color-white;
+        text-align: center;
+        line-height: 46rpx;
+    }
 
-		.time-num {
-			width: 200rpx;
-			height: 120rpx;
-			display: flex;
-			padding: 37rpx 15rpx;
-			justify-content: space-between;
+    .time__num-dot {
+        line-height: 46rpx;
+    }
 
-			.item {
-				width: 44rpx;
-				height: 46rpx;
-				background: #333333;
-				border-radius: 6rpx;
-				color: #fff;
-				text-align: center;
-				line-height: 46rpx;
+    .time__count {
+        @include dimensions(96rpx, 120rpx);
+        line-height: 120rpx;
+        text-align: right;
+        flex: 1;
 
-				text {
-					width: 42rpx;
-					height: 46rpx;
-					font-size: 24rpx;
-					font-weight: 300;
-					color: #ffffff;
-					line-height: 46rpx;
-				}
-			}
+    }
 
-			.dot {
-				line-height: 46rpx;
-			}
-		}
+    .time__count-now {
+        @include dimensions(48rpx, 56rpx);
+        line-height: 56rpx;
+    }
 
-		.time-right {
-			width: 96rpx;
-			height: 120rpx;
-			line-height: 120rpx;
-			text-align: right;
-			flex: 1;
-
-			.that-num {
-				width: 48rpx;
-				height: 56rpx;
-				font-size: 40rpx;
-				color: #333333;
-				line-height: 56rpx;
-				padding-right: 5rpx;
-			}
-
-			.count {
-				width: 48rpx;
-				height: 40rpx;
-				font-size: 28rpx;
-				font-weight: 400;
-				text-align: center;
-				color: #cccccc;
-				line-height: 40rpx;
-			}
-		}
-	}
-
-
-    .line {
-		margin: 0 30rpx;
-		height: 1rpx;
-		background: rgba(218, 218, 218, 0.3);
-	}
+    .time__count-total {
+        @include dimensions(48rpx, 40rpx);
+        font-weight: 400;
+        text-align: center;
+        color: #cccccc;
+        line-height: 40rpx;
+    }
+}
 
 
 
 
 .footer {
-		position: fixed;
-		bottom: 0;
-		background: #fff;
-		padding-bottom: env(safe-area-inset-bottom);
-		box-shadow: 0rpx -2rpx 20rpx 20rpx #f5f5f5;
+    bottom: 0;
+    background: $background-color-secondary;
 
-		.footer-content {
-			background: #ffffff;
-			min-width: 740rpx;
-			height: 100rpx;
-			display: flex;
-			justify-content: space-between;
-			padding: 0 40rpx;
+    .footer-content {
+        min-width: 740rpx;
+        height: 100rpx;
+        line-height: 100rpx;
 
-			.footer-right {
-				display: flex;
-				line-height: 100rpx;
+        @include grid($justify-content: space-between);
 
-				.right-item:first-child {
-					margin-right: 54rpx;
-				}
-                .right-item:nth-child(2) {
-					margin-right: 54rpx;
-				}
-                
-
-				.right-item {
-					height: 100rpx;
-					width: 96rpx;
-					font-size: 32rpx;
-					font-family: PingFangSC, PingFangSC-Regular;
-					font-weight: 400;
-					text-align: left;
-					color: #44a7fc;
-				}
-			}
-
-			.footer-left {
-				display: flex;
-				justify-content: space-between;
-				line-height: 100rpx;
-				box-flex: 1;
-
-				.item:first-child {
-					margin-right: 54rpx;
-				}
-
-				.item {
-					display: flex;
-					justify-content: space-between;
-
-					.suc-num {
-						width: 36rpx;
-						height: 48rpx;
-						font-size: 34rpx;
-						font-family: PingFangSC, PingFangSC-Regular;
-						font-weight: 400;
-						text-align: left;
-						color: #299afa;
-						line-height: 100rpx;
-						position: relative;
-						left: 10rpx;
-					}
-
-					.err-num {
-						width: 36rpx;
-						height: 48rpx;
-						font-size: 34rpx;
-						font-family: PingFangSC, PingFangSC-Regular;
-						font-weight: 400;
-						text-align: left;
-						color: #fd0000;
-						line-height: 100rpx;
-						position: relative;
-						left: 10rpx;
-					}
-
-					.suc-icon {
-						width: 40rpx;
-						height: 40rpx;
-						position: relative;
-						top: 30rpx;
-						/* background-image: url(../../static/exam_suc.svg); */
-						background-repeat: no-repeat;
-						background-size: 100%;
-					}
-
-					.err-icon {
-						width: 40rpx;
-						height: 40rpx;
-						position: relative;
-						top: 30rpx;
-						/* background-image: url(../../static/exam_err.svg); */
-						background-repeat: no-repeat;
-						background-size: 100%;
-					}
-				}
-			}
-		}
+        .footer-content__right {
+            display: flex;
+        
+            .footer-content__right-item {
+                @include dimensions(120rpx, 100rpx);
+                font-family: PingFangSC, PingFangSC-Regular;
+                font-weight: 400;
+                text-align: right;
+                color: $color-text-quaternary;
+            }
+        }
 	}
+}
 
 
-.text-header {
-		width: 670rpx;
-		height: 100rpx;
-		font-size: 36rpx;
-		font-family: PingFangSC, PingFangSC-Regular;
-		font-weight: 400;
-		text-align: left;
-		color: #333333;
-		line-height: 50rpx;
-		margin-left: 32rpx;
-		margin-top: 30rpx;
-		display: flex;
-	}
-
-
-    .text-option {
-		width: 670rpx;
-		background: #eeeeee;
-		border-radius: 4rpx;
-		margin-left: 32rpx;
-		margin-top: 30rpx;
-		text-align: left;
-	}
-
-	.text-option text {
-		font-size: 36rpx;
-		font-family: PingFangSC, PingFangSC-Regular;
-		font-weight: 400;
-		color: #888888;
-		line-height: 50rpx;
-		display: flex;
-		padding: 30rpx;
-		text-align: left;
-	}
-
-	.option-error {
-		background: #f66565 !important;
-
-		text {
-			color: #ffffff !important;
-		}
-	}
-
-	.option-action {
-		background: #2799fa !important;
-
-		text {
-			color: #ffffff !important;
-		}
-	}
+.exam-main {
+    padding-bottom: 200rpx !important;
+}
 </style>

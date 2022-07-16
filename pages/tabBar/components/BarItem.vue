@@ -3,7 +3,7 @@
 	<view class="tabbar-box-wrap fixed pa0">
 		<view v-for="(item, index) in tabbarData" class="tabbar-box-wrap__item fz22" :key="index" @click="handleChange" :data-cur="item.cur">
 			<view class='tabbar-box-wrap__item fz36'>
-                <view v-if="isLogin && index == tabbarData.length - 1" class="tabbar-box-wrap__badge"></view>
+                <!-- <view v-if="isLogin && index == tabbarData.length - 1" class="tabbar-box-wrap__badge"></view> -->
 				<image class="tabbar-box-wrap__image" v-if="pageCur == item.cur" :src="item.curImg"></image>
 				<image class="tabbar-box-wrap__image" v-if="pageCur != item.cur" :src="item.img"></image>
 			</view>

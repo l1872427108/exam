@@ -5,7 +5,7 @@
             <text class="text-grey">{{title}}</text>
         </view>
         <view class="action">
-            <text class="text-grey">{{info}}</text>
+            <text class="text-grey">{{info ? info : '--'}}</text>
         </view>
     </view>
 </template>

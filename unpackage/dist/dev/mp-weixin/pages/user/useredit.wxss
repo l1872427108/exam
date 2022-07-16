@@ -127,6 +127,9 @@ to {
   border-radius: 4px;
   margin-bottom: 30rpx;
 }
+.user-edit .user-edit__item-class {
+  width: 100%;
+}
 .user-edit .user-edit__item-text {
   width: 100rpx;
   font-size: 26rpx;

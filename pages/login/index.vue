@@ -3,7 +3,7 @@
 	<view style="height:100vh;" class="bg-secondary">
         <!-- 头部 -->
 		<view class="login-title">
-			<view class="login-title__text fz40" @click="goLogin3()">
+			<view class="login-title__text fz40">
 				您好，欢迎使用轻松考
 			</view>
 		</view>
@@ -44,12 +44,8 @@
 			</view>
 		</view>
         <view :class="[reverse === 1 ? 'reverse-1' : '']">
-            <!-- <view class="login__form"> -->
-            <SumitButton @click="handleLogin" :content="reverse === 1 ? '登 录' : '去 登 录'"></SumitButton>
-            <SumitButton @click="handleReg" :content="reverse === 1 ? '去 注 册' : '注册'"></SumitButton>
-            <!-- <button class="button-direction mb20" @tap="handleLogin()">{{reverse === 1 ? '登 录' : '去 登 录'}}</button> -->
-		    <!-- <button class="button-direction" @tap="handleReg()">{{reverse === 1 ? '去 注 册' : '注册'}}</button> -->
-            <!-- </view> -->
+            <SumitButton @click="$debounce(handleLogin, 500, true)" :content="reverse === 1 ? '登 录' : '去 登 录'"></SumitButton>
+            <SumitButton @click="$debounce(handleReg, 500, true)" :content="reverse === 1 ? '去 注 册' : '注册'"></SumitButton>
         </view>
 	</view>
 </template>
@@ -78,8 +74,8 @@ export default {
             isLoading: false,
             // 登录表单数据
             loginData: {
-                mobile: '15235985339', //手机号码
-			    password: 'gl1234' //密码
+                mobile: '', //手机号码
+			    password: '' //密码
             },
             // 注册表单数据
             registerData: {
@@ -287,8 +283,6 @@ export default {
 
     @include e(text) {
         text-align: left;
-        /* font-size: 42rpx; */   // fz40
-        /* color: $color-text-tertiary; */  // bg-tertiary
         padding: 130rpx 0 0 70rpx;
         font-weight: bold;
         line-height: 70rpx;
@@ -313,6 +307,7 @@ export default {
         color: #000000;   // color-
         font-weight: bold;
         line-height: 120rpx;
+        flex-wrap: nowrap;
         /* border-bottom: 1px solid #e9e9e9; */  // border-bottom
     }
 
@@ -339,7 +334,7 @@ export default {
     @include e(code) {
         /* font-size: 25rpx; */
         /* padding-right: 20rpx; */
-        min-width: 200rpx;
+        min-width: 220rpx;
         /* flex: 1; */
     }
 }

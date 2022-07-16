@@ -1,6 +1,5 @@
 {
   "usingComponents": {
-    "u-line": "/components/u-line/u-line",
     "avatar-image": "/components/AvatarImage/index",
     "submit-button": "/components/SumitButton/index"
   }

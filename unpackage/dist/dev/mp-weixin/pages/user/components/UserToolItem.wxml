@@ -1,1 +1,1 @@
-<view class="my-info-tool-item animation-slide-top"><view class="my-info-tool-item__btn mh20"><image class="my-info-tool-item__img mr10" src="{{img}}" mode="aspectFit"></image><text class="my-info-tool-item__person">{{title}}</text></view><slot></slot></view>
+<view class="my-info-tool-item animation-slide-top"><view class="my-info-tool-item__btn mh20"><image class="my-info-tool-item__img mr10" src="{{img}}" mode="aspectFit"></image><text class="my-info-tool-item__person ml10">{{title}}</text></view><slot></slot></view>

@@ -9,16 +9,16 @@
     <TabScroll :tab-list="navList" @tabChange="tabChange"></TabScroll>
 
     <!-- 考试详情 -->
-    <view v-if="isLogin && cur === 0">
-        <exam-item :nav-index="cur" :list-data="examPaperList"></exam-item>
+    <view v-if="isLogin && cur === 0 && examPaperList.length > 0">
+        <exam-item :is-login="isLogin" :nav-index="cur" :list-data="examPaperList"></exam-item>
     </view>
     
-    <view v-else-if="isLogin && cur === 1">
+    <view v-else-if="isLogin && cur === 1 && answerList.length > 0">
         <exam-item :nav-index="cur" :list-data="answerList"></exam-item>
     </view>
 
-    <view style="text-align: center;" v-else>
-        <image style="width:300rpx; height:300rpx; margin-top: 100rpx" src="/static/ASCElogo.png" />
+    <view style="text-align: center; width: 100%;" v-else>
+        <image style="margin-top: 100rpx" src="/static/nodata.png" />
     </view>
 	
     <!-- 底部撑开块 -->
@@ -103,7 +103,7 @@ export default {
             // return new Promise((resolve, reject) => {
             this.isLogin && ApiExam.selectAllExamPaperAnswer()
                 .then(result => {
-                    this.answerList = result.data.answerList
+                    this.answerList = result.data.answerList.reverse();
                 })
                 .catch(err => {
                     reject(err)
@@ -136,5 +136,5 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 </style>

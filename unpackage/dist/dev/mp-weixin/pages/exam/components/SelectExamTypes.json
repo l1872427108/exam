@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "u-popup": "/components/u-popup/u-popup",
-    "uni-transition": "/components/uni-transition/uni-transition"
-  }
-}

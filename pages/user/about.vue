@@ -4,24 +4,25 @@
 	<view class="titleZ text-center align-center">
 		<text class="text-bold">关于我们</text>
 		<view class="contentZ">
-			<text class="text-xl">普歌</text>
+			<text class="text-xl">我们是程序员、工程师、梦想者
+普歌（peosing）成立于2019年5月13日，是一个校内的计算机兴趣学习平台，主要聚焦互联网开发，UI设计、大数据方面及产品和运营区域，采用企业式架构进行管理。在这里，有许多有经验的学长会带领你学习最新的技术，普歌也有着最详细的学习路线图，依照成员兴趣为起点，以朋辈导学的方式，引导成员对互联网进行探索，接轨真实的企业级项目，使成员接触到更加真实的企业相关知识。</text>
 		</view>
 	</view>
 	
 	<view class="titleZ text-center align-center margin-top-xl">
-		<text class="text-bold">合作</text>
+		<text class="text-bold"></text>
 		<view class="contentZ margin-top-lg">
-			<image style="width: 300rpx;height: 300rpx" src="/static/ASCElogo.png" />
-            <image style="width: 300rpx;height: 300rpx" src="/static/pugelogo.png" />
+			<!-- <image style="width: 300rpx;height: 300rpx" src="/static/ASCElogo.png" />
+            <image style="width: 300rpx;height: 300rpx" src="/static/pugelogo.png" /> -->
 		</view>
 	</view>
     
-    <view class="titleZ text-center align-center">
+    <!-- <view class="titleZ text-center align-center">
 		<text class="text-bold">联系我们</text>
 		<view class="contentZ">
 			<text class="text-xl">普歌</text>
 		</view>
-	</view>
+	</view> -->
 	
   </view>
 </template>

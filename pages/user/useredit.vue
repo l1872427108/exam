@@ -51,13 +51,13 @@
 			</view>
             <view class="user-edit__item">
 				<text class="user-edit__item-text">班 级</text>
-				<picker @change="bindPickerChange" :value="schoolIndex" :range="schoolSection">
+				<picker class="user-edit__item-class" @change="bindPickerChange" :value="schoolIndex" :range="schoolSection">
 					<view class="uni-input">{{schoolSection[schoolIndex]}}</view>
 				</picker>
 			</view>
 			<view class="user-edit__item">
 				<text class="user-edit__item-text">生　日</text>
-				<picker mode="date" v-model="userInfo.age" @change="bindDateChange">
+				<picker class="user-edit__item-class" mode="date" v-model="userInfo.age" @change="bindDateChange">
 					<view class="user-edit__item-date" style="background: none;">{{
 						userInfo.age || '请选择日期'
 					}}</view>
@@ -79,7 +79,7 @@
 
 
             <!-- 提交按钮 -->
-            <submit-button :btn-loading="btnLoading" @click="handleUpdateInfo" content="提交"></submit-button>
+            <submit-button :btn-loading="btnLoading" @click="$debounce(handleUpdateInfo, 500, true)" content="提交"></submit-button>
             
         </view>
 		</form>
@@ -87,7 +87,6 @@
 </template>
 
 <script>
-import uLine from '@/components/u-line/u-line.vue'
 import AvatarImage from '@/components/AvatarImage';
 import SubmitButton from '@/components/SumitButton';
 import School from '@/common/enum/user/School'
@@ -96,7 +95,6 @@ import * as Validate from '@/utils/validate'
     import * as UserApi from '@/api/user'
 	export default {
         components: {
-            uLine,
             AvatarImage,
             SubmitButton
         },
@@ -145,6 +143,7 @@ import * as Validate from '@/utils/validate'
                 UserApi.getUserInfo({})
                 .then(result => {
                     this.userInfo = result.data.qskInfo
+                    this.schoolIndex = this.schoolSection.findIndex(item => item === this.userInfo.userClass);
                 })
             },
 
@@ -324,6 +323,10 @@ import * as Validate from '@/utils/validate'
         line-height: 80upx;
         border-radius: 4px;
         margin-bottom: 30upx;
+    }
+
+    .user-edit__item-class {
+        width: 100%;
     }
 
     .user-edit__item-text {
