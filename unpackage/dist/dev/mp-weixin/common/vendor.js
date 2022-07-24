@@ -3763,7 +3763,7 @@ getters;exports.default = _default;
 
 /***/ }),
 
-/***/ 128:
+/***/ 129:
 /*!************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/home/index.js ***!
   \************************************************************************/
@@ -3771,29 +3771,7 @@ getters;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "Home", { enumerable: true, get: function get() {return _Home.default;} });var _Home = _interopRequireDefault(__webpack_require__(/*! ./Home */ 129));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
-/***/ }),
-
-/***/ 129:
-/*!***********************************************************************!*\
-  !*** /Users/renchengkai/Desktop/project-qsk/common/enum/home/Home.js ***!
-  \***********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-
-
-/**
-                                                                                                                                                                                                                                                            * tabber列表
-                                                                                                                                                                                                                                                            */var _default =
-
-new _index.default([
-{ id: 1, type: 'image', url: '/static/banner/banner1.jpeg', link: '' },
-{ id: 2, type: 'image', url: '/static/banner/banner2.jpeg', link: '' },
-{ id: 3, type: 'image', url: '/static/banner/banner3.jpeg', link: '' }]);exports.default = _default;
+Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "Home", { enumerable: true, get: function get() {return _Home.default;} });var _Home = _interopRequireDefault(__webpack_require__(/*! ./Home */ 130));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /***/ }),
 
@@ -3805,8 +3783,8 @@ new _index.default([
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
-	"./time.js": 246,
-	"./users.js": 14
+	"./time.js": 14,
+	"./users.js": 16
 };
 
 
@@ -3831,7 +3809,29 @@ webpackContext.id = 13;
 
 /***/ }),
 
-/***/ 137:
+/***/ 130:
+/*!***********************************************************************!*\
+  !*** /Users/renchengkai/Desktop/project-qsk/common/enum/home/Home.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+
+
+/**
+                                                                                                                                                                                                                                                            * tabber列表
+                                                                                                                                                                                                                                                            */var _default =
+
+new _index.default([
+{ id: 1, type: 'image', url: '/static/banner/banner1.jpeg', link: '' },
+{ id: 2, type: 'image', url: '/static/banner/banner2.jpeg', link: '' },
+{ id: 3, type: 'image', url: '/static/banner/banner3.jpeg', link: '' }]);exports.default = _default;
+
+/***/ }),
+
+/***/ 138:
 /*!************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/exam/index.js ***!
   \************************************************************************/
@@ -3839,11 +3839,11 @@ webpackContext.id = 13;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "Exam", { enumerable: true, get: function get() {return _Exam.default;} });var _Exam = _interopRequireDefault(__webpack_require__(/*! ./Exam */ 138));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "Exam", { enumerable: true, get: function get() {return _Exam.default;} });var _Exam = _interopRequireDefault(__webpack_require__(/*! ./Exam */ 139));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /***/ }),
 
-/***/ 138:
+/***/ 139:
 /*!***********************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/exam/Exam.js ***!
   \***********************************************************************/
@@ -3851,7 +3851,7 @@ Object.defineProperty(exports, "__esModule", { value: true });Object.definePrope
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -3869,6 +3869,48 @@ new _index.default([
 /***/ }),
 
 /***/ 14:
+/*!********************************************************************!*\
+  !*** /Users/renchengkai/Desktop/project-qsk/store/modules/time.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _mutationTypes = __webpack_require__(/*! @/store/mutation-types */ 15);function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+
+
+var state = {
+  lastTime: '' };
+
+
+var mutations = _defineProperty({},
+_mutationTypes.SET_TIME, function (state, value) {
+  state.lastTime = value;
+});var _default =
+
+
+{
+  namespaced: true,
+  state: state,
+  mutations: mutations };exports.default = _default;
+
+/***/ }),
+
+/***/ 15:
+/*!**********************************************************************!*\
+  !*** /Users/renchengkai/Desktop/project-qsk/store/mutation-types.js ***!
+  \**********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.SET_TIME = exports.SET_USER_ID = exports.SET_TOKEN = void 0;var SET_TOKEN = 'SET_TOKEN';exports.SET_TOKEN = SET_TOKEN;
+var SET_USER_ID = 'SET_USER_ID';exports.SET_USER_ID = SET_USER_ID;
+var SET_TIME = 'SET_TIME';exports.SET_TIME = SET_TIME;
+
+/***/ }),
+
+/***/ 16:
 /*!*********************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/store/modules/users.js ***!
   \*********************************************************************/
@@ -3877,7 +3919,7 @@ new _index.default([
 
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _mutationTypes = __webpack_require__(/*! @/store/mutation-types */ 15);
-var LoginApi = _interopRequireWildcard(__webpack_require__(/*! @/api/user */ 16));
+var LoginApi = _interopRequireWildcard(__webpack_require__(/*! @/api/user */ 17));
 var _storage = _interopRequireDefault(__webpack_require__(/*! @/utils/storage */ 9));var _mutations;function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 
 /**
@@ -3949,21 +3991,7 @@ var actions = {
 
 /***/ }),
 
-/***/ 15:
-/*!**********************************************************************!*\
-  !*** /Users/renchengkai/Desktop/project-qsk/store/mutation-types.js ***!
-  \**********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.SET_TIME = exports.SET_USER_ID = exports.SET_TOKEN = void 0;var SET_TOKEN = 'SET_TOKEN';exports.SET_TOKEN = SET_TOKEN;
-var SET_USER_ID = 'SET_USER_ID';exports.SET_USER_ID = SET_USER_ID;
-var SET_TIME = 'SET_TIME';exports.SET_TIME = SET_TIME;
-
-/***/ }),
-
-/***/ 16:
+/***/ 17:
 /*!**********************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/api/user.js ***!
   \**********************************************************/
@@ -3971,7 +3999,7 @@ var SET_TIME = 'SET_TIME';exports.SET_TIME = SET_TIME;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.login = login;exports.register = register;exports.sendCode = sendCode;exports.getUserInfo = getUserInfo;exports.updateUserInfo = updateUserInfo;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request */ 17));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
+Object.defineProperty(exports, "__esModule", { value: true });exports.login = login;exports.register = register;exports.sendCode = sendCode;exports.getUserInfo = getUserInfo;exports.updateUserInfo = updateUserInfo;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
 
 var api = {
   register: '/api/puge/register',
@@ -4024,7 +4052,7 @@ function updateUserInfo(data) {
 
 /***/ }),
 
-/***/ 17:
+/***/ 18:
 /*!*********************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/request/index.js ***!
   \*********************************************************************/
@@ -4032,12 +4060,12 @@ function updateUserInfo(data) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));
 
 
 var _store = _interopRequireDefault(__webpack_require__(/*! @/store */ 10));
-var _request = _interopRequireDefault(__webpack_require__(/*! ./request */ 21));
-var _config = _interopRequireDefault(__webpack_require__(/*! @/core/config */ 27));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
+var _request = _interopRequireDefault(__webpack_require__(/*! ./request */ 22));
+var _config = _interopRequireDefault(__webpack_require__(/*! @/core/config */ 28));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _createForOfIteratorHelper(o, allowArrayLike) {var it;if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) {if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") {if (it) o = it;var i = 0;var F = function F() {};return { s: F, n: function n() {if (i >= o.length) return { done: true };return { done: false, value: o[i++] };}, e: function e(_e) {throw _e;}, f: F };}throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}var normalCompletion = true,didErr = false,err;return { s: function s() {it = o[Symbol.iterator]();}, n: function n() {var step = it.next();normalCompletion = step.done;return step;}, e: function e(_e2) {didErr = true;err = _e2;}, f: function f() {try {if (!normalCompletion && it.return != null) it.return();} finally {if (didErr) throw err;}} };}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
 
 // 后端api地址
 var apiUrl = _config.default.get('apiUrl');
@@ -4247,18 +4275,7 @@ $http;exports.default = _default;
 
 /***/ }),
 
-/***/ 18:
-/*!**********************************************************!*\
-  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(/*! regenerator-runtime */ 19);
-
-/***/ }),
-
-/***/ 187:
+/***/ 188:
 /*!***************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/exam/Question.js ***!
   \***************************************************************************/
@@ -4266,7 +4283,7 @@ module.exports = __webpack_require__(/*! regenerator-runtime */ 19);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -4297,50 +4314,13 @@ new _index.default([
 /***/ }),
 
 /***/ 19:
-/*!************************************************************!*\
-  !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
-  \************************************************************/
+/*!**********************************************************!*\
+  !*** ./node_modules/@babel/runtime/regenerator/index.js ***!
+  \**********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-/**
- * Copyright (c) 2014-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-// This method of obtaining a reference to the global object needs to be
-// kept identical to the way it is obtained in runtime.js
-var g = (function() {
-  return this || (typeof self === "object" && self);
-})() || Function("return this")();
-
-// Use `getOwnPropertyNames` because not all browsers support calling
-// `hasOwnProperty` on the global `self` object in a worker. See #183.
-var hadRuntime = g.regeneratorRuntime &&
-  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
-
-// Save the old regeneratorRuntime in case it needs to be restored later.
-var oldRuntime = hadRuntime && g.regeneratorRuntime;
-
-// Force reevalutation of runtime.js.
-g.regeneratorRuntime = undefined;
-
-module.exports = __webpack_require__(/*! ./runtime */ 20);
-
-if (hadRuntime) {
-  // Restore the original runtime.
-  g.regeneratorRuntime = oldRuntime;
-} else {
-  // Remove the global property added by runtime.js.
-  try {
-    delete g.regeneratorRuntime;
-  } catch(e) {
-    g.regeneratorRuntime = undefined;
-  }
-}
-
+module.exports = __webpack_require__(/*! regenerator-runtime */ 20);
 
 /***/ }),
 
@@ -4376,6 +4356,54 @@ module.exports = g;
 /***/ }),
 
 /***/ 20:
+/*!************************************************************!*\
+  !*** ./node_modules/regenerator-runtime/runtime-module.js ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+/**
+ * Copyright (c) 2014-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+// This method of obtaining a reference to the global object needs to be
+// kept identical to the way it is obtained in runtime.js
+var g = (function() {
+  return this || (typeof self === "object" && self);
+})() || Function("return this")();
+
+// Use `getOwnPropertyNames` because not all browsers support calling
+// `hasOwnProperty` on the global `self` object in a worker. See #183.
+var hadRuntime = g.regeneratorRuntime &&
+  Object.getOwnPropertyNames(g).indexOf("regeneratorRuntime") >= 0;
+
+// Save the old regeneratorRuntime in case it needs to be restored later.
+var oldRuntime = hadRuntime && g.regeneratorRuntime;
+
+// Force reevalutation of runtime.js.
+g.regeneratorRuntime = undefined;
+
+module.exports = __webpack_require__(/*! ./runtime */ 21);
+
+if (hadRuntime) {
+  // Restore the original runtime.
+  g.regeneratorRuntime = oldRuntime;
+} else {
+  // Remove the global property added by runtime.js.
+  try {
+    delete g.regeneratorRuntime;
+  } catch(e) {
+    g.regeneratorRuntime = undefined;
+  }
+}
+
+
+/***/ }),
+
+/***/ 21:
 /*!*****************************************************!*\
   !*** ./node_modules/regenerator-runtime/runtime.js ***!
   \*****************************************************/
@@ -5107,7 +5135,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 21:
+/***/ 22:
 /*!***********************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/request/request.js ***!
   \***********************************************************************/
@@ -5115,12 +5143,12 @@ module.exports = g;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _upload = _interopRequireDefault(__webpack_require__(/*! ./upload/upload */ 22));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _upload = _interopRequireDefault(__webpack_require__(/*! ./upload/upload */ 23));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 _upload.default;exports.default = _default;
 
 /***/ }),
 
-/***/ 22:
+/***/ 23:
 /*!*****************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/request/upload/upload.js ***!
   \*****************************************************************************/
@@ -5128,14 +5156,14 @@ _upload.default;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));var _request2 = _interopRequireDefault(__webpack_require__(/*! ./../core/request.js */ 23));
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));var _request2 = _interopRequireDefault(__webpack_require__(/*! ./../core/request.js */ 24));
 
 
 
 
 
 
-var _utils = __webpack_require__(/*! ./../core/utils.js */ 24);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = _getPrototypeOf(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = _getPrototypeOf(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return _possibleConstructorReturn(this, result);};}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}var _require = __webpack_require__(/*! ./utils */ 25),chooseImage = _require.chooseImage,chooseVideo = _require.chooseVideo,qiniuUpload = _require.qiniuUpload,urlUpload = _require.urlUpload;var
+var _utils = __webpack_require__(/*! ./../core/utils.js */ 25);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}function _inherits(subClass, superClass) {if (typeof superClass !== "function" && superClass !== null) {throw new TypeError("Super expression must either be null or a function");}subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } });if (superClass) _setPrototypeOf(subClass, superClass);}function _setPrototypeOf(o, p) {_setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) {o.__proto__ = p;return o;};return _setPrototypeOf(o, p);}function _createSuper(Derived) {var hasNativeReflectConstruct = _isNativeReflectConstruct();return function _createSuperInternal() {var Super = _getPrototypeOf(Derived),result;if (hasNativeReflectConstruct) {var NewTarget = _getPrototypeOf(this).constructor;result = Reflect.construct(Super, arguments, NewTarget);} else {result = Super.apply(this, arguments);}return _possibleConstructorReturn(this, result);};}function _possibleConstructorReturn(self, call) {if (call && (typeof call === "object" || typeof call === "function")) {return call;}return _assertThisInitialized(self);}function _assertThisInitialized(self) {if (self === void 0) {throw new ReferenceError("this hasn't been initialised - super() hasn't been called");}return self;}function _isNativeReflectConstruct() {if (typeof Reflect === "undefined" || !Reflect.construct) return false;if (Reflect.construct.sham) return false;if (typeof Proxy === "function") return true;try {Date.prototype.toString.call(Reflect.construct(Date, [], function () {}));return true;} catch (e) {return false;}}function _getPrototypeOf(o) {_getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) {return o.__proto__ || Object.getPrototypeOf(o);};return _getPrototypeOf(o);}var _require = __webpack_require__(/*! ./utils */ 26),chooseImage = _require.chooseImage,chooseVideo = _require.chooseVideo,qiniuUpload = _require.qiniuUpload,urlUpload = _require.urlUpload;var
 
 
 fileUpload = /*#__PURE__*/function (_request) {_inherits(fileUpload, _request);var _super = _createSuper(fileUpload);
@@ -5336,7 +5364,7 @@ fileUpload = /*#__PURE__*/function (_request) {_inherits(fileUpload, _request);v
 
 /***/ }),
 
-/***/ 23:
+/***/ 24:
 /*!****************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/request/core/request.js ***!
   \****************************************************************************/
@@ -5344,7 +5372,7 @@ fileUpload = /*#__PURE__*/function (_request) {_inherits(fileUpload, _request);v
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 18));var _utils = __webpack_require__(/*! ./utils */ 24);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 19));var _utils = __webpack_require__(/*! ./utils */ 25);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var
 
 
 
@@ -5486,7 +5514,7 @@ request = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ 24:
+/***/ 25:
 /*!**************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/request/core/utils.js ***!
   \**************************************************************************/
@@ -5600,35 +5628,7 @@ exports.dispatchRequest = dispatchRequest;var jsonpRequest = function jsonpReque
 
 /***/ }),
 
-/***/ 246:
-/*!********************************************************************!*\
-  !*** /Users/renchengkai/Desktop/project-qsk/store/modules/time.js ***!
-  \********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _mutationTypes = __webpack_require__(/*! @/store/mutation-types */ 15);function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}
-
-
-var state = {
-  lastTime: '' };
-
-
-var mutations = _defineProperty({},
-_mutationTypes.SET_TIME, function (state, value) {
-  state.lastTime = value;
-});var _default =
-
-
-{
-  namespaced: true,
-  state: state,
-  mutations: mutations };exports.default = _default;
-
-/***/ }),
-
-/***/ 25:
+/***/ 26:
 /*!****************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/request/upload/utils.js ***!
   \****************************************************************************/
@@ -5636,7 +5636,7 @@ _mutationTypes.SET_TIME, function (state, value) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.urlUpload = exports.qiniuUpload = exports.chooseVideo = exports.chooseImage = exports.randomChar = void 0;function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var qiniuUploader = __webpack_require__(/*! ./qiniuUploader */ 26);
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.urlUpload = exports.qiniuUpload = exports.chooseVideo = exports.chooseImage = exports.randomChar = void 0;function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}var qiniuUploader = __webpack_require__(/*! ./qiniuUploader */ 27);
 //七牛云上传文件命名
 var randomChar = function randomChar(l) {var url = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
   var x = "0123456789qwertyuioplkjhgfdsazxcvbnm";
@@ -5928,7 +5928,7 @@ exports.qiniuUpload = qiniuUpload;var urlUpload = function urlUpload(requestInfo
 
 /***/ }),
 
-/***/ 26:
+/***/ 27:
 /*!************************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/request/upload/qiniuUploader.js ***!
   \************************************************************************************/
@@ -6107,7 +6107,7 @@ exports.qiniuUpload = qiniuUpload;var urlUpload = function urlUpload(requestInfo
 
 /***/ }),
 
-/***/ 27:
+/***/ 28:
 /*!*******************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/core/config/index.js ***!
   \*******************************************************************/
@@ -6115,8 +6115,8 @@ exports.qiniuUpload = qiniuUpload;var urlUpload = function urlUpload(requestInfo
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = _interopRequireDefault(__webpack_require__(/*! @/config.js */ 28));
-var _defaultConfig = _interopRequireDefault(__webpack_require__(/*! ./defaultConfig.js */ 29));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _config = _interopRequireDefault(__webpack_require__(/*! @/config.js */ 29));
+var _defaultConfig = _interopRequireDefault(__webpack_require__(/*! ./defaultConfig.js */ 30));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 // 合并用户配置和默认配置
 var mergeConfig = Object.assign({}, _defaultConfig.default, _config.default);
@@ -6142,7 +6142,7 @@ var mergeConfig = Object.assign({}, _defaultConfig.default, _config.default);
 
 /***/ }),
 
-/***/ 28:
+/***/ 29:
 /*!********************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/config.js ***!
   \********************************************************/
@@ -6152,23 +6152,6 @@ var mergeConfig = Object.assign({}, _defaultConfig.default, _config.default);
 module.exports = {
   name: "轻松考",
   apiUrl: "https://xg.puge.cn/prod-api" };
-
-/***/ }),
-
-/***/ 29:
-/*!***************************************************************************!*\
-  !*** /Users/renchengkai/Desktop/project-qsk/core/config/defaultConfig.js ***!
-  \***************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  name: '轻松考',
-  /*
-               * 后端api地址
-               */
-  apiUrl: "https://xg.puge.cn/prod-api" };exports.default = _default;
 
 /***/ }),
 
@@ -6636,7 +6619,24 @@ function resolveLocaleChain(locale) {
 
 /***/ }),
 
-/***/ 32:
+/***/ 30:
+/*!***************************************************************************!*\
+  !*** /Users/renchengkai/Desktop/project-qsk/core/config/defaultConfig.js ***!
+  \***************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  name: '轻松考',
+  /*
+               * 后端api地址
+               */
+  apiUrl: "https://xg.puge.cn/prod-api" };exports.default = _default;
+
+/***/ }),
+
+/***/ 33:
 /*!**********************************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
   \**********************************************************************************************************/
@@ -6765,7 +6765,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 33:
+/***/ 34:
 /*!***********************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/app.js ***!
   \***********************************************************/
@@ -6774,7 +6774,7 @@ function normalizeComponent (
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.navTo = exports.showToast = exports.showError = exports.showSuccess = exports.checkLogin = void 0;var _store = _interopRequireDefault(__webpack_require__(/*! @/store */ 10));
-var util = _interopRequireWildcard(__webpack_require__(/*! @/utils/util */ 34));function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var util = _interopRequireWildcard(__webpack_require__(/*! @/utils/util */ 35));function _getRequireWildcardCache() {if (typeof WeakMap !== "function") return null;var cache = new WeakMap();_getRequireWildcardCache = function _getRequireWildcardCache() {return cache;};return cache;}function _interopRequireWildcard(obj) {if (obj && obj.__esModule) {return obj;}if (obj === null || typeof obj !== "object" && typeof obj !== "function") {return { default: obj };}var cache = _getRequireWildcardCache();if (cache && cache.has(obj)) {return cache.get(obj);}var newObj = {};var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;for (var key in obj) {if (Object.prototype.hasOwnProperty.call(obj, key)) {var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;if (desc && (desc.get || desc.set)) {Object.defineProperty(newObj, key, desc);} else {newObj[key] = obj[key];}}}newObj.default = obj;if (cache) {cache.set(obj, newObj);}return newObj;}function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /**
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  * 验证是否已登录
@@ -6850,7 +6850,7 @@ var navTo = function navTo(url) {var query = arguments.length > 1 && arguments[1
 
 /***/ }),
 
-/***/ 34:
+/***/ 35:
 /*!************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/util.js ***!
   \************************************************************/
@@ -6858,7 +6858,7 @@ var navTo = function navTo(url) {var query = arguments.length > 1 && arguments[1
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.throttle = throttle;exports.addPreZero = exports.addUnit = exports.isEmptyObject = exports.isArray = exports.isObject = exports.isEmpty = exports.urlEncode = void 0;var _validate = __webpack_require__(/*! ./validate */ 35);
+Object.defineProperty(exports, "__esModule", { value: true });exports.throttle = throttle;exports.addPreZero = exports.addUnit = exports.isEmptyObject = exports.isArray = exports.isObject = exports.isEmpty = exports.urlEncode = void 0;var _validate = __webpack_require__(/*! ./validate */ 36);
 /**
                                                                                                                                                                                                                                                                                                 * 对象转URL
                                                                                                                                                                                                                                                                                                 * @param {object} obj
@@ -6970,7 +6970,7 @@ function throttle(func) {var wait = arguments.length > 1 && arguments[1] !== und
 
 /***/ }),
 
-/***/ 35:
+/***/ 36:
 /*!****************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/validate.js ***!
   \****************************************************************/
@@ -7071,7 +7071,7 @@ function isEmail(str) {
 
 /***/ }),
 
-/***/ 36:
+/***/ 37:
 /*!****************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/utils/debounce.js ***!
   \****************************************************************/
@@ -13161,7 +13161,7 @@ internalMixin(Vue);
 
 /***/ }),
 
-/***/ 48:
+/***/ 49:
 /*!************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/user/index.js ***!
   \************************************************************************/
@@ -13169,12 +13169,23 @@ internalMixin(Vue);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "User", { enumerable: true, get: function get() {return _User.default;} });Object.defineProperty(exports, "Pic", { enumerable: true, get: function get() {return _Pic.default;} });var _User = _interopRequireDefault(__webpack_require__(/*! ./User */ 49));
-var _Pic = _interopRequireDefault(__webpack_require__(/*! ./Pic */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "User", { enumerable: true, get: function get() {return _User.default;} });Object.defineProperty(exports, "Pic", { enumerable: true, get: function get() {return _Pic.default;} });var _User = _interopRequireDefault(__webpack_require__(/*! ./User */ 50));
+var _Pic = _interopRequireDefault(__webpack_require__(/*! ./Pic */ 52));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /***/ }),
 
-/***/ 49:
+/***/ 5:
+/*!*********************************************************!*\
+  !*** /Users/renchengkai/Desktop/project-qsk/pages.json ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 50:
 /*!***********************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/user/User.js ***!
   \***********************************************************************/
@@ -13182,7 +13193,7 @@ var _Pic = _interopRequireDefault(__webpack_require__(/*! ./Pic */ 51));function
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -13207,18 +13218,7 @@ new _index.default([
 
 /***/ }),
 
-/***/ 5:
-/*!*********************************************************!*\
-  !*** /Users/renchengkai/Desktop/project-qsk/pages.json ***!
-  \*********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 50:
+/***/ 51:
 /*!*******************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/index.js ***!
   \*******************************************************************/
@@ -13251,7 +13251,7 @@ Enum;exports.default = _default;
 
 /***/ }),
 
-/***/ 51:
+/***/ 52:
 /*!**********************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/user/Pic.js ***!
   \**********************************************************************/
@@ -13259,7 +13259,7 @@ Enum;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -13288,7 +13288,7 @@ new _index.default([
 
 /***/ }),
 
-/***/ 54:
+/***/ 55:
 /*!*****************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/tabbar.js/index.js ***!
   \*****************************************************************************/
@@ -13296,11 +13296,11 @@ new _index.default([
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "TabBar", { enumerable: true, get: function get() {return _TabBar.default;} });var _TabBar = _interopRequireDefault(__webpack_require__(/*! ./TabBar */ 55));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });Object.defineProperty(exports, "TabBar", { enumerable: true, get: function get() {return _TabBar.default;} });var _TabBar = _interopRequireDefault(__webpack_require__(/*! ./TabBar */ 56));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 /***/ }),
 
-/***/ 55:
+/***/ 56:
 /*!******************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/tabbar.js/TabBar.js ***!
   \******************************************************************************/
@@ -13308,7 +13308,7 @@ Object.defineProperty(exports, "__esModule", { value: true });Object.definePrope
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -13336,7 +13336,7 @@ new _index.default([
 
 /***/ }),
 
-/***/ 71:
+/***/ 72:
 /*!*************************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/user/School.js ***!
   \*************************************************************************/
@@ -13344,7 +13344,7 @@ new _index.default([
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -13418,7 +13418,7 @@ new _index.default([
 
 /***/ }),
 
-/***/ 72:
+/***/ 73:
 /*!**********************************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/common/enum/user/Sex.js ***!
   \**********************************************************************/
@@ -13426,7 +13426,7 @@ new _index.default([
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 50));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _index = _interopRequireDefault(__webpack_require__(/*! ../index */ 51));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 
 /**
@@ -13519,7 +13519,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 97:
+/***/ 98:
 /*!**********************************************************!*\
   !*** /Users/renchengkai/Desktop/project-qsk/api/exam.js ***!
   \**********************************************************/
@@ -13527,7 +13527,7 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.getAllExamInfo = getAllExamInfo;exports.selectAllExamPaperAnswer = selectAllExamPaperAnswer;exports.getOneExamPaper = getOneExamPaper;exports.subimtExamAnswer = subimtExamAnswer;exports.getExamPaperUserAnswer = getExamPaperUserAnswer;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request */ 17));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+Object.defineProperty(exports, "__esModule", { value: true });exports.getAllExamInfo = getAllExamInfo;exports.selectAllExamPaperAnswer = selectAllExamPaperAnswer;exports.getOneExamPaper = getOneExamPaper;exports.subimtExamAnswer = subimtExamAnswer;exports.getExamPaperUserAnswer = getExamPaperUserAnswer;var _request = _interopRequireDefault(__webpack_require__(/*! @/utils/request */ 18));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 
 var api = {
   exam: '/exam/exam-paper/getAllExamPaperbyuid',

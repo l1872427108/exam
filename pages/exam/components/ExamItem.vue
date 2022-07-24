@@ -16,6 +16,7 @@
 
 <script>
 import * as UserApi from '@/api/user'
+import { isEmail } from '../../../utils/validate';
 export default {
     props: {
         listData: {
@@ -40,8 +41,7 @@ export default {
                 // 先验证是否能够考试
                 this.getUserInfo()
                     .then(() => {
-                        const isExam = !this.checkExamTime(item);
-                        isExam && this.$navTo('pages/exam/examSection', {id: item.id}, 'redirectTo')
+                        this.checkExamTime(item);
                     })
             } else if (this.navIndex === 1) {
                 // 记录
@@ -76,6 +76,7 @@ export default {
          * 检测是否在考试时间段
          */
         checkExamTime(item) {
+            const that = this;
             let nowTime = Date.parse(new Date());
             let startTime = Date.parse(new Date(item.limitStartTime.replace(/-/g, '/')));
             let endTime = Date.parse(new Date(item.limitEndTime.replace(/-/g, '/')));
@@ -100,11 +101,11 @@ export default {
             }
             uni.showModal({
                 title: '提示',
-                content: '考试未开始',
+                content: '点击确认参加考试',
                 showCancel: true,
                 success(res) {
                     if (res.confirm) {
-                        return true;
+                        that.$navTo('pages/exam/examSection', {id: item.id}, 'redirectTo')
                     }
                 }
             })

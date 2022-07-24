@@ -15,7 +15,7 @@
     </view>
 
     <!-- 题号弹框 -->
-    <uPopup zIndex="9999" v-model="showApp" mode="top" border-radius="20">
+    <uPopup zIndex="999" v-model="showApp" mode="top" border-radius="20">
 
         <view class="popup">
             <view class="popup__list pl10">

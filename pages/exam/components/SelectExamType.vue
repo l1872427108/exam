@@ -51,7 +51,7 @@
     <!-- 问答题 -->
     <view v-if="question.questionType === '4'">
         <view class="text-option mt30 ml35">
-            <textarea maxlength="-1" class="text-textarea fz35 pv10" data-type="areablank" :value="textarea" @input="selectOption"></textarea>
+            <textarea v-show="true || false" maxlength="-1" class="text-textarea fz35 pv10" data-type="areablank" :value="textarea" @input="selectOption"></textarea>
         </view>
     </view>
 
